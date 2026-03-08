@@ -1,0 +1,104 @@
+@reference "tailwindcss";
+
+.converse-card {
+  @apply flex w-full flex-col border-b border-b-slate-200 px-2 py-3;
+}
+.converse-card__detail__main {
+  @apply flex w-full flex-col px-0 py-3 sm:px-2;
+}
+
+.converse-card__header {
+  @apply flex w-full flex-row items-start justify-between sm:items-center;
+}
+
+.converse-card__user-info {
+  @apply flex flex-col sm:flex-row sm:items-center sm:space-x-3;
+}
+
+.converse-card__avatar-wrapper {
+  @apply h-6 w-6 rounded-full border border-teal-600;
+}
+
+.converse-card__username {
+  @apply mr-1 ml-[-12px] max-w-[20ch] truncate text-sm font-medium text-zinc-600;
+}
+
+.converse-card__divider {
+  @apply mx-2 h-3 w-[1px] rounded-full bg-gray-500;
+}
+
+.converse-card__created-at {
+  @apply text-xs font-normal text-zinc-600;
+}
+
+.converse-card__category {
+  @apply w-fit rounded-[2px] bg-zinc-50 p-1 text-xs font-normal whitespace-nowrap text-zinc-600;
+}
+
+.converse-card__hint-wrapper {
+  @apply mt-1 flex items-center justify-center sm:mt-0;
+}
+
+.converse-card__answered {
+  @apply flex items-center gap-1;
+}
+
+.converse-card__popover-item {
+  @apply flex cursor-pointer items-center justify-between text-xs font-normal text-zinc-700 hover:bg-gray-100;
+}
+
+.converse-card__title {
+  @apply line-clamp-1 text-justify text-sm font-normal text-zinc-800;
+}
+
+.converse-card__description {
+  @apply line-clamp-2 overflow-hidden text-justify text-sm font-normal text-ellipsis text-zinc-600;
+}
+
+.converse-card__body {
+  @apply my-4 flex min-h-19 w-full flex-col gap-3;
+}
+
+.converse-card__body__detail {
+  @apply mt-6 mb-4 flex min-h-19 w-full flex-col gap-3;
+}
+
+.converse-card__footer {
+  @apply flex justify-between;
+}
+
+.converse-card__details {
+  @apply flex w-auto cursor-pointer items-center justify-center gap-1 rounded-[8px] bg-zinc-50 px-3 py-1 text-sm font-normal text-zinc-700;
+}
+
+.converse-card__avatars {
+  @apply flex -space-x-2 hover:space-x-1;
+}
+
+.converse-card__avatar {
+  @apply size-5 bg-white ring-[1px] ring-teal-600 transition-all duration-300 ease-in-out;
+}
+
+.converse-card__avatar-fallback {
+  @apply text-[10px];
+}
+
+.converse-card__likes {
+  @apply flex;
+}
+
+.converse-card__divider__main {
+  @apply mx-2 h-8 w-[1px] rounded-full bg-gray-200;
+}
+
+.converse-card__group__avatars {
+  @apply flex space-x-1;
+}
+
+.converse-card__title__detail {
+  @apply text-justify text-sm font-normal text-zinc-800;
+}
+
+.converse-card__description__detail {
+  @apply text-justify text-sm font-normal text-zinc-600;
+}
