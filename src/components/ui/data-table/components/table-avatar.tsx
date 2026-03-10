@@ -8,7 +8,7 @@ type TableAvatarProps = {
   alt: string;
 };
 
-export function TableAvatar({ src, alt }: TableAvatarProps) {
+function TableAvatar({ src, alt }: TableAvatarProps) {
   const [imgSrc, setImgSrc] = useState(src || "/images/default-avatar.svg");
 
   return (
@@ -18,7 +18,7 @@ export function TableAvatar({ src, alt }: TableAvatarProps) {
       width={32}
       height={32}
       onError={() => setImgSrc("/images/default-avatar.svg")}
-      className="rounded-full border-1 border-teal-600 object-cover"
+      className="rounded-full border-1 border-[#1E40AF] object-cover"
     />
   );
 }

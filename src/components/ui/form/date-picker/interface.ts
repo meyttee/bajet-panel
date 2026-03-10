@@ -36,9 +36,4 @@ type TRhfDatePicker<TFieldValues extends FieldValues> =
         }
     );
 
-export type {
-  IRangeDatePicker,
-  ISingleDatePickerProps,
-  IRhfDatePicker,
-  TRhfDatePicker,
-};
+export type { IRangeDatePicker, ISingleDatePickerProps, TRhfDatePicker };

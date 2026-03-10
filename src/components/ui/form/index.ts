@@ -13,4 +13,3 @@ export * from "./uploader";
 export * from "./editor";
 export * from "./toggle";
 export * from "./date-time-picker";
-export * from "./textarea";

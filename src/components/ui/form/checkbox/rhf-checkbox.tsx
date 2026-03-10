@@ -11,7 +11,7 @@ import { Checkbox } from "./checkbox";
 import { RHFCheckboxProps } from "./interface";
 import { FieldValues } from "react-hook-form";
 
-export const RHFCheckbox = <TFieldValues extends FieldValues>({
+const RHFCheckbox = <TFieldValues extends FieldValues>({
   name,
   control,
   label,

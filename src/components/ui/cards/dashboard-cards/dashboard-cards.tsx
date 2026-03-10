@@ -47,7 +47,7 @@ const CardHeader: FC<
                 className={clsx(
                   "flex cursor-pointer items-center justify-between px-2 text-xs leading-9 font-normal text-zinc-700 hover:bg-gray-100",
                   {
-                    "hover:bg-teal-600/25": selectedOption === o.value,
+                    "hover:bg-[#1E40AF]/25": selectedOption === o.value,
                   },
                 )}
                 onClick={() => handleOptionClick?.(o.value)}
@@ -55,7 +55,7 @@ const CardHeader: FC<
               >
                 {o.label}
                 {selectedOption === o.value ? (
-                  <Check className="text-teal-600" />
+                  <Check className="text-[#1E40AF]" />
                 ) : null}
               </p>
             ))}
@@ -149,5 +149,3 @@ const Card: FC<PropsWithChildren<CardProps>> = ({
     </CardContainer>
   );
 };
-
-export { Card, CardHeader, CardContainer, CardFooter, CardBody };

@@ -134,13 +134,13 @@ export function TableFacetedFilter<TData, TValue>({
                             : "opacity-50 [&_svg]:invisible",
                         )}
                       >
-                        <Check className="rounded-xs bg-teal-600 text-white" />
+                        <Check className="rounded-xs bg-[#1E40AF] text-white" />
                       </div>
                       {option.icon && <option.icon />}
                       <span
                         className={cn(
                           "truncate",
-                          isSelected ? "text-teal-600" : "",
+                          isSelected ? "text-[#1E40AF]" : "",
                         )}
                       >
                         {option.label}

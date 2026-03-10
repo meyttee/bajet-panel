@@ -18,7 +18,7 @@ interface DataTableSkeletonProps extends React.ComponentProps<"div"> {
   shrinkZero?: boolean;
 }
 
-export function DataTableSkeleton({
+function DataTableSkeleton({
   columnCount,
   rowCount = 10,
   cellWidths = ["auto"],

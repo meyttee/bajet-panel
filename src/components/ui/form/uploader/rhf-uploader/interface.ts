@@ -1,7 +1,7 @@
 import { Control, FieldValues, Path } from "react-hook-form";
 import { AibImageUploaderProps } from "../aib-image-uploader";
 
-export interface RHFImageUploaderProps<TFieldValues extends FieldValues>
+interface RHFImageUploaderProps<TFieldValues extends FieldValues>
   extends Omit<
     AibImageUploaderProps,
     "initialImageUrl" | "onFileChange" | "error" | "errorMessage"

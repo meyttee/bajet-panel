@@ -18,17 +18,17 @@ const Loading: FC<loadingProps> = ({ size = "md", theme = "dark" }) => {
   );
 
   const firstChildClasses = clsx(commonClasses, "delay-[500ms]", {
-    "bg-teal-600": theme === "dark",
+    "bg-[#1E40AF]": theme === "dark",
     "bg-zinc-50": theme === "light",
   });
 
   const secondChildClasses = clsx(commonClasses, "delay-[350ms]", {
-    "bg-teal-600/50": theme === "dark",
+    "bg-[#1E40AF]/50": theme === "dark",
     "bg-gray-200": theme === "light",
   });
 
   const thirdChildClasses = clsx(commonClasses, "delay-200", {
-    "bg-teal-600/25": theme === "dark",
+    "bg-[#1E40AF]/25": theme === "dark",
     "bg-gray-300": theme === "light",
   });
 

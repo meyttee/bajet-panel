@@ -763,7 +763,6 @@ const strings = {
   networkErrorUseChrome: "پیشنهاد می‌شود از مرورگر Chrome استفاده نمایید.",
   networkErrorRefreshPage:
     "در صورت رفع نشدن مشکل، چند دقیقه بعد مجدداً تلاش نمایید.",
-  receiveExport: "دریافت خروجی",
   informations: "اطلاعات",
   exportType: "نوع خروجی",
   asFilteredData: "مطابق فیلتر جدول",

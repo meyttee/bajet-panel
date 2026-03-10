@@ -12,7 +12,6 @@ import { SearchBar } from "../../search-bar";
 import { TableViewOptions } from "./table-view-options";
 import { TableToolbarProps } from "../types";
 import { Badge } from "../../badges";
-import { TableReport } from "./data-table-report";
 
 export function TableToolbar<TData>({
   table,
@@ -59,7 +58,6 @@ export function TableToolbar<TData>({
           </Badge>
         </div>
         <div className="flex justify-end gap-2">
-          <TableReport table={table} />
           <TableViewOptions table={table} />
           <Button
             aria-label="Reset filters"

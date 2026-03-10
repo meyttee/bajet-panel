@@ -19,7 +19,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"
-      className={cn("bg-teal-600/12 [&_tr]:h-11 [&_tr]:border-b", className)}
+      className={cn("bg-[#1E40AF]/12 [&_tr]:h-11 [&_tr]:border-b", className)}
       {...props}
     />
   );
@@ -80,7 +80,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
     <td
       data-slot="table-cell"
       className={cn(
-        "border-t-1 border-teal-600/12 px-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-4 [&>[role=checkbox]]:translate-y-[2px]",
+        "border-t-1 border-[#1E40AF]/12 px-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-4 [&>[role=checkbox]]:translate-y-[2px]",
         className,
       )}
       {...props}
@@ -101,13 +101,4 @@ function TableCaption({
   );
 }
 
-export {
-  Table,
-  TableHeader,
-  TableBody,
-  TableFooter,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableCaption,
-};
+export { Table, TableHeader, TableBody, TableHead, TableRow, TableCell };

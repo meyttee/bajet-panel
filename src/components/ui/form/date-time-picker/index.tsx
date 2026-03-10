@@ -16,7 +16,7 @@ import { DateTimePickerProps } from "./interface";
 import { TimePicker } from "./time-picker";
 import { strings } from "@/constants";
 
-export const DateTimePicker: React.FC<DateTimePickerProps> = ({
+const DateTimePicker: React.FC<DateTimePickerProps> = ({
   onChange,
   value,
   disabled = false,

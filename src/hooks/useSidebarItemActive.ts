@@ -6,9 +6,7 @@ import { usePathname } from "next/navigation";
 /**
  * Returns an array where each item has an added `isActive` property
  */
-export function useSidebarItemsActive(
-  sidebarData: SidebarItem[],
-): SidebarItem[] {
+function useSidebarItemsActive(sidebarData: SidebarItem[]): SidebarItem[] {
   const pathname = usePathname();
   return sidebarData.map((item) => ({
     ...item,
@@ -35,7 +33,7 @@ function isSidebarItemActive(item: SidebarItem, currentPath: string): boolean {
   return false;
 }
 
-export function useSidebarItemActive(item: SidebarItem): boolean {
+function useSidebarItemActive(item: SidebarItem): boolean {
   const pathname = usePathname();
   return isSidebarItemActive(item, pathname);
 }

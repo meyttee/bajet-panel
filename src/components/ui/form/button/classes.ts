@@ -6,10 +6,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: `rounded-[20px] text-primary-foreground shadow-xs hover:bg-primary/90`,
-        destructive: `disabled:!bg-error-100/20 disabled:!border-error-100/20 rounded-[6px] !border !border-transparent !bg-red-600 px-3 py-2 !text-white hover:!border-red-600 hover:!bg-red-400 hover:!text-white`,
-        outline: `rounded-[6px] border border-transparent bg-teal-600 active:ring disabled:border-teal-600/32 disabled:bg-teal-600/12 disabled:text-teal-600/32`,
+        destructive: `rounded-[6px] !border !border-transparent !bg-red-600 px-3 py-2 !text-white hover:!border-red-600 hover:!bg-red-400 hover:!text-white disabled:!border-[#DC2626]/20 disabled:!bg-[#DC2626]/20`,
+        outline: `rounded-[6px] border border-transparent bg-[#1E40AF] active:ring disabled:border-[#1E40AF]/32 disabled:bg-[#1E40AF]/12 disabled:text-[#1E40AF]/32`,
         ghost: `overflow-hidden rounded-[14px] p-2`,
-        link: `!border-transparent !px-3 !py-1.5 text-primary text-teal-600 underline-offset-4 hover:!bg-gray-200 hover:text-teal-600 active:!border-gray-400 active:!ring-0 disabled:text-teal-600/32`,
+        link: `!border-transparent !px-3 !py-1.5 text-[#1E40AF] text-primary underline-offset-4 hover:!bg-gray-200 hover:text-[#1E40AF] active:!border-gray-400 active:!ring-0 disabled:text-[#1E40AF]/32`,
         subtle: `!hover:bg-zinc-50 !hover:text-zinc-700 !hover:border-zinc-600 !border-gray-400 !text-zinc-700`,
       },
       size: {
@@ -20,8 +20,8 @@ const buttonVariants = cva(
         full: "!w-full px-4 py-2",
       },
       isFilled: {
-        true: `border border-transparent bg-teal-600 text-white hover:border-teal-600 hover:bg-white hover:text-teal-600 active:border-white active:bg-teal-600 active:text-white disabled:border-teal-600/12 disabled:bg-teal-600/12 disabled:text-teal-600/25`,
-        false: `border border-teal-600 bg-transparent text-teal-600 hover:bg-teal-600 hover:text-white active:bg-teal-600 active:ring`,
+        true: `border border-transparent bg-[#1E40AF] text-white hover:border-[#1E40AF] hover:bg-white hover:text-[#1E40AF] active:border-white active:bg-[#1E40AF] active:text-white disabled:border-[#1E40AF]/12 disabled:bg-[#1E40AF]/12 disabled:text-[#1E40AF]/25`,
+        false: `border border-[#1E40AF] bg-transparent text-[#1E40AF] hover:bg-[#1E40AF] hover:text-white active:bg-[#1E40AF] active:ring`,
       },
     },
     defaultVariants: {
@@ -33,17 +33,17 @@ const buttonVariants = cva(
       {
         variant: "outline",
         isFilled: false,
-        className: `hover:border-teal-600 hover:bg-gray-200/40 hover:text-teal-600 active:bg-teal-600/25 active:ring-0 disabled:border-teal-600/32 disabled:bg-white disabled:text-teal-600/32`,
+        className: `hover:border-[#1E40AF] hover:bg-gray-200/40 hover:text-[#1E40AF] active:bg-[#1E40AF]/25 active:ring-0 disabled:border-[#1E40AF]/32 disabled:bg-white disabled:text-[#1E40AF]/32`,
       },
       {
         variant: "outline",
         isFilled: true,
-        className: "dieabled:bg-teal-600/12",
+        className: "dieabled:bg-[#1E40AF]/12",
       },
       {
         variant: "ghost",
         isFilled: false,
-        className: `acitve:ring-0 border border-transparent bg-transparent !p-2 text-zinc-700 hover:bg-gray-100 hover:text-teal-600 active:border-teal-600 active:bg-zinc-200 active:text-teal-600 aria-selected:bg-teal-600 aria-selected:text-white`,
+        className: `acitve:ring-0 border border-transparent bg-transparent !p-2 text-zinc-700 hover:bg-gray-100 hover:text-[#1E40AF] active:border-[#1E40AF] active:bg-zinc-200 active:text-[#1E40AF] aria-selected:bg-[#1E40AF] aria-selected:text-white`,
       },
       {
         variant: "subtle",

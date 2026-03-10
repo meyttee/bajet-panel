@@ -9,7 +9,7 @@ import { createQueryClient } from "@/provider/queryProvider/queryClient";
 
 import ZodErrorsSetup from "../zod-provider";
 
-export interface QueryProviderProps {
+interface QueryProviderProps {
   dehydratedState: unknown;
 }
 

@@ -23,7 +23,7 @@ type SetState<T> = Dispatch<SetStateAction<T>>;
  * @param propOnChange - Optional external input change callback.
  * @returns A ChangeEvent handler for the input element.
  */
-export function makeOnInputChange(
+function makeOnInputChange(
   atLimit: boolean,
   variant: TVariant,
   isOpen: boolean,
@@ -57,7 +57,7 @@ export function makeOnInputChange(
  * @param onSelect - Callback invoked with updated selected options.
  * @returns A function to handle picking an option.
  */
-export function makePickOption(
+function makePickOption(
   variant: TVariant,
   tagLimit: number,
   selectedOptions: AutocompleteOption[],
@@ -112,7 +112,7 @@ export function makePickOption(
  * @param onSelect - Callback invoked with updated selections.
  * @returns A function to handle option removal.
  */
-export function makeRemoveOption(
+function makeRemoveOption(
   setSelectedOptions: SetState<AutocompleteOption[]>,
   onSelect: (opts: AutocompleteOption[]) => void,
 ) {
@@ -140,7 +140,7 @@ export function makeRemoveOption(
  * @param setHighlightedId - State setter for highlighted option ID.
  * @returns A KeyboardEvent handler for the input.
  */
-export function makeOnKeyDown(
+function makeOnKeyDown(
   variant: TVariant,
   tagLimit: number,
   inputValue: string,
@@ -184,7 +184,7 @@ export function makeOnKeyDown(
  * @param setIsOpen - State setter for dropdown open state.
  * @returns A click handler to toggle dropdown.
  */
-export function makeToggleOpen(
+function makeToggleOpen(
   inputDisabled: boolean,
   setIsOpen: SetState<boolean>,
 ): () => void {

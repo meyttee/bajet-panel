@@ -158,7 +158,6 @@
   --animate-slide-in: slide-in 0.3s cubic-bezier(0.33, 1, 0.68, 1) forwards;
   --animate-loading-animation: loading-animation 1s ease infinite;
   --animate-slide-out: slide-out 0.5s forwards;
-  --color-teal-600: var(--color-teal-700);
 
   @keyframes accordion-down {
     from {

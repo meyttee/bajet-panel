@@ -1,13 +1,13 @@
 import { FC, SVGProps } from "react";
 
-export interface FacetedFilterProps {
+interface FacetedFilterProps {
   title?: string;
   options: OptionFilter[];
   value?: string[];
   onChange?: (value: string[]) => void;
   multiple?: boolean;
 }
-export interface OptionFilter {
+interface OptionFilter {
   label: string;
   value: string;
   count?: number;

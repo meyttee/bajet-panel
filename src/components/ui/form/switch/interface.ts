@@ -6,4 +6,3 @@ interface switchProps extends ComponentProps<typeof Root> {
   size?: "sm" | "lg";
   variant?: "primary" | "secondary";
 }
-export type { switchProps };

@@ -107,5 +107,3 @@ const LikeAndDislike: FC<LikeAndDislikeProps> = ({
     </div>
   );
 };
-
-export default LikeAndDislike;

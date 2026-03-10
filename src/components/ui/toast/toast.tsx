@@ -42,4 +42,4 @@ const toast = {
   loading: createToast("loading"),
 };
 
-export { ToastContainer, toast };
+export { ToastContainer };

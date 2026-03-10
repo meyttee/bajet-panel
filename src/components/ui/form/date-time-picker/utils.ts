@@ -1,15 +1,15 @@
 // ---------- Time Picker Utils ----------
 type GetValidNumberConfig = { max: number; min?: number; loop?: boolean };
 
-export function isValidHour(value: string) {
+function isValidHour(value: string) {
   return /^(0[0-9]|1[0-9]|2[0-3])$/.test(value);
 }
 
-export function isValidMinuteOrSecond(value: string) {
+function isValidMinuteOrSecond(value: string) {
   return /^[0-5][0-9]$/.test(value);
 }
 
-export function getValidNumber(
+function getValidNumber(
   value: string,
   { max, min = 0, loop = false }: GetValidNumberConfig,
 ) {
@@ -29,12 +29,12 @@ export function getValidNumber(
   return "00";
 }
 
-export function getValidHour(value: string) {
+function getValidHour(value: string) {
   if (isValidHour(value)) return value;
   return getValidNumber(value, { max: 23 });
 }
 
-export function getValidMinuteOrSecond(value: string) {
+function getValidMinuteOrSecond(value: string) {
   if (isValidMinuteOrSecond(value)) return value;
   return getValidNumber(value, { max: 59 });
 }
@@ -45,7 +45,7 @@ type GetValidArrowNumberConfig = {
   step: number;
 };
 
-export function getValidArrowNumber(
+function getValidArrowNumber(
   value: string,
   { min, max, step }: GetValidArrowNumberConfig,
 ) {
@@ -57,15 +57,15 @@ export function getValidArrowNumber(
   return "00";
 }
 
-export function getValidArrowHour(value: string, step: number) {
+function getValidArrowHour(value: string, step: number) {
   return getValidArrowNumber(value, { min: 0, max: 23, step });
 }
 
-export function getValidArrowMinuteOrSecond(value: string, step: number) {
+function getValidArrowMinuteOrSecond(value: string, step: number) {
   return getValidArrowNumber(value, { min: 0, max: 59, step });
 }
 
-export type TimePickerType = "minutes" | "seconds" | "hours";
+type TimePickerType = "minutes" | "seconds" | "hours";
 
 export function setDateByType(date: Date, value: string, type: TimePickerType) {
   const newDate = new Date(date);

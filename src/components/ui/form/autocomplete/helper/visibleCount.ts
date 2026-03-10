@@ -17,7 +17,7 @@
  */
 import { TVariant } from "../interface";
 
-export function computeVisibleCount(
+function computeVisibleCount(
   chips: HTMLElement[],
   containerWidth: number,
   variant: TVariant,

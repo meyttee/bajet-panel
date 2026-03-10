@@ -11,14 +11,14 @@ interface RhfSelectProps<TFieldValues extends FieldValues>
   label?: string;
 }
 
-export type { AIBSelectProps, RhfSelectProps };
-export interface SelectOption {
+export type { RhfSelectProps };
+interface SelectOption {
   value: string;
   label: string;
   disabled?: boolean;
 }
 
-export interface SelectProps {
+interface SelectProps {
   options: SelectOption[];
   value?: string;
   defaultValue?: string;

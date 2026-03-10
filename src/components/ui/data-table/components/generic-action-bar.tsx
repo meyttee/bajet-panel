@@ -20,7 +20,7 @@ type GenericActionBarProps<TData extends { id: string | number }> = {
   onEdit: (ids: TData["id"][]) => void;
 };
 
-export function GenericActionBar<TData extends { id: string | number }>({
+function GenericActionBar<TData extends { id: string | number }>({
   table,
   onDelete,
   onEdit,

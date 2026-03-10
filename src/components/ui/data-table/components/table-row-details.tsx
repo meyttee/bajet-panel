@@ -1,9 +1,6 @@
 import { TableRowDetailsProps } from "../types";
 
-export const TableRowDetails = <T,>({
-  data,
-  fields,
-}: TableRowDetailsProps<T>) => {
+const TableRowDetails = <T,>({ data, fields }: TableRowDetailsProps<T>) => {
   return (
     <div className="flex flex-col gap-2 sm:px-4 sm:py-5">
       {fields.map((field, index) => (

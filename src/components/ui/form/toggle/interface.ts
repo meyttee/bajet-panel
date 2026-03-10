@@ -1,20 +1,20 @@
 import { Control, FieldValues, Path } from "react-hook-form";
 
-export type ToggleSize = "fixed" | "auto";
+type ToggleSize = "fixed" | "auto";
 
-export interface ToggleItem {
+interface ToggleItem {
   label: string;
   value: string;
   disabled?: boolean;
 }
 
-export interface ToggleBaseProps {
+interface ToggleBaseProps {
   value: string;
   onValueChange: (value: string) => void;
   size?: ToggleSize;
 }
 
-export interface Primary {
+interface Primary {
   variant?: "primary";
   items: ToggleItem[];
   disabled?: boolean;
@@ -22,12 +22,12 @@ export interface Primary {
   onOff?: false;
 }
 
-export interface Secondary {
+interface Secondary {
   variant?: "secondary";
   items: ToggleItem[];
 }
 
-export interface PrimaryWithOff {
+interface PrimaryWithOff {
   variant?: "primary";
   items: [ToggleItem, ToggleItem];
   onOff?: true;
@@ -35,10 +35,9 @@ export interface PrimaryWithOff {
   readonly?: boolean;
 }
 
-export type ToggleProps = ToggleBaseProps &
-  (Primary | Secondary | PrimaryWithOff);
+type ToggleProps = ToggleBaseProps & (Primary | Secondary | PrimaryWithOff);
 
-export type RHFToggleProps<TFieldValues extends FieldValues> = (
+type RHFToggleProps<TFieldValues extends FieldValues> = (
   | Primary
   | PrimaryWithOff
 ) & {

@@ -10,7 +10,7 @@ import { AutocompleteOption } from "../interface";
  *   the inputValue (case-insensitive).
  */
 
-export function filterOptions(
+function filterOptions(
   options: AutocompleteOption[],
   inputValue: string,
 ): AutocompleteOption[] {
@@ -29,7 +29,7 @@ export function filterOptions(
  * @returns A Map where each key is a group name and the value is an array of options in that group
  */
 
-export function groupOptions(
+function groupOptions(
   dropdownSource: AutocompleteOption[],
 ): Map<string, AutocompleteOption[]> {
   const map = new Map<string, AutocompleteOption[]>();

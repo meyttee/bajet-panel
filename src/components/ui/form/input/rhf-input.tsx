@@ -10,7 +10,7 @@ import {
 } from "../form";
 import { AIBInput } from "./input";
 
-export const RHFInput = <TFieldValues extends FieldValues>({
+const RHFInput = <TFieldValues extends FieldValues>({
   name,
   control,
   label,

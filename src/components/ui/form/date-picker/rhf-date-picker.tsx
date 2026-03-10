@@ -12,7 +12,7 @@ import { TRhfDatePicker } from "./interface";
 import { RangeDatePicker } from "./range-date-picker";
 import { SingleDatePicker } from "./single-date-picker";
 
-export const RhfDatePicker = <TFieldValues extends FieldValues>({
+const RhfDatePicker = <TFieldValues extends FieldValues>({
   mode,
   name,
   control,

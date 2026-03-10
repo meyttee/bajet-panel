@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-export const useQueryParams = () => {
+const useQueryParams = () => {
   const searchParams = useSearchParams();
 
   return Object.fromEntries(

@@ -13,7 +13,7 @@ import { RadioGroup, RadioGroupItem } from "./radio-group";
 import { RHFRadioGroupProps } from "./interface";
 import clsx from "clsx";
 
-export const RHFRadioGroup = <
+const RHFRadioGroup = <
   TFieldValues extends FieldValues,
   Name extends Path<TFieldValues>,
 >({

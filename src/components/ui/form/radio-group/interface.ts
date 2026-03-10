@@ -8,7 +8,7 @@ type RadioGroupProps = React.ComponentProps<typeof RadioGroupPrimitive.Root> & {
   variant?: "vertical" | "horizontal";
 };
 
-export interface RadioOption<
+interface RadioOption<
   TFieldValues extends FieldValues,
   Name extends Path<TFieldValues>,
 > {

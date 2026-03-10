@@ -11,7 +11,7 @@ const variantIcons: Record<ModalVariant, ReactNode | null> = {
   delete: <ModalDeleteIcon />,
 };
 
-export const ConfirmModal = ({
+const ConfirmModal = ({
   open,
   onClose,
   variant = "simple",
@@ -55,7 +55,7 @@ export const ConfirmModal = ({
       headerIcon={modalIcon}
     >
       <div className="flex flex-col items-center justify-between">
-        <span className="text-sm/6 font-medium text-teal-600">{title}</span>
+        <span className="text-sm/6 font-medium text-[#1E40AF]">{title}</span>
         <span className="mt-3 mb-8 text-center text-sm/6 font-normal text-neutral-900">
           {description
             ? description

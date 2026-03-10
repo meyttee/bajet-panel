@@ -7,9 +7,7 @@ const sortingItemSchema = z.object({
   orderBy: z.string(),
 });
 
-export const getSortingStateParser = <TData>(
-  columnIds?: string[] | Set<string>,
-) => {
+const getSortingStateParser = <TData>(columnIds?: string[] | Set<string>) => {
   const validKeys = columnIds
     ? columnIds instanceof Set
       ? columnIds
@@ -55,9 +53,7 @@ const filterItemSchema = z.object({
 
 export type FilterItemSchema = z.infer<typeof filterItemSchema>;
 
-export const getFiltersStateParser = <TData>(
-  columnIds?: string[] | Set<string>,
-) => {
+const getFiltersStateParser = <TData>(columnIds?: string[] | Set<string>) => {
   const validKeys = columnIds
     ? columnIds instanceof Set
       ? columnIds

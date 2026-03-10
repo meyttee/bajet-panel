@@ -33,7 +33,7 @@ const modules = {
   },
 };
 
-export const Editor = <TFieldValues extends FieldValues>({
+const Editor = <TFieldValues extends FieldValues>({
   control,
   name,
   height = "140px",

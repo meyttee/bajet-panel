@@ -1,4 +1,4 @@
-import { FC, SVGProps } from 'react';
+import { FC, SVGProps } from "react";
 
 interface DislikeIconProps extends SVGProps<SVGSVGElement> {
   strokeColor?: string;
@@ -7,8 +7,8 @@ interface DislikeIconProps extends SVGProps<SVGSVGElement> {
 }
 
 const DislikeIcon: FC<DislikeIconProps> = ({
-  strokeColor = '#464C4C',
-  fillColor = 'none',
+  strokeColor = "#464C4C",
+  fillColor = "none",
   size = 20,
   ...svgProps
 }) => {

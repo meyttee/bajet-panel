@@ -12,7 +12,7 @@ import { AutocompleteOption, TVariant } from "@/components";
  * @param {string} inputValue - The current input value to determine if filtering should apply.
  * @returns {AutocompleteOption[]} The array of options to display in the dropdown.
  */
-export function getDropdownSource(
+function getDropdownSource(
   variant: TVariant,
   options: AutocompleteOption[],
   filtered: AutocompleteOption[],

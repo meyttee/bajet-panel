@@ -29,7 +29,7 @@ export interface LoadingRectangle {
   delay: string;
 }
 
-export interface ToastPlaygroundProps {
+interface ToastPlaygroundProps {
   type: ToastTypes;
   message: string;
   description?: string;

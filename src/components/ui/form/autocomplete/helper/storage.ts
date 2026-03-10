@@ -12,7 +12,7 @@ const KEY = "selectedAutocompleteValue";
  * @param {AutocompleteOption[]} selected - Array of selected options to save.
  * @returns {void}
  */
-export function saveToStorage(selected: AutocompleteOption[]): void {
+function saveToStorage(selected: AutocompleteOption[]): void {
   localStorage.setItem(KEY, JSON.stringify(selected.map((x) => x.label)));
 }
 
@@ -24,7 +24,7 @@ export function saveToStorage(selected: AutocompleteOption[]): void {
  *
  * @returns {string[] | string | null} The parsed value array or single string, or null if none.
  */
-export function loadFromStorage(): string[] | string | null {
+function loadFromStorage(): string[] | string | null {
   const s = localStorage.getItem(KEY);
   if (!s) return null;
   try {
@@ -39,6 +39,6 @@ export function loadFromStorage(): string[] | string | null {
  *
  * @returns {void}
  */
-export function clearStorage(): void {
+function clearStorage(): void {
   localStorage.removeItem(KEY);
 }

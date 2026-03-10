@@ -2,7 +2,7 @@ import { Control, FieldValues, Path } from "react-hook-form";
 import { THeightSize, TVariant } from "../interface";
 import { ReactNode } from "react";
 
-export interface RHFAutocompleteProps<
+interface RHFAutocompleteProps<
   TField extends FieldValues,
   TOption = { value: string; label: string; disabled?: boolean },
 > {

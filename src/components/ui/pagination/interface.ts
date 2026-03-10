@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
 
-export interface PaginationProps extends ComponentProps<"div"> {
+interface PaginationProps extends ComponentProps<"div"> {
   page: number;
   pageSize: number;
   pageCount: number;

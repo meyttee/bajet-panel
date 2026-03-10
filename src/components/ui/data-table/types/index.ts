@@ -13,7 +13,7 @@ import { DataTableConfig } from "../constant";
 import { Options } from "nuqs";
 import type { DateRange } from "react-day-picker";
 
-export interface UseTableFiltersProps<TData> {
+interface UseTableFiltersProps<TData> {
   table: Table<TData>;
   columns: ColumnDef<TData, any>[];
   history?: "push" | "replace";
@@ -25,7 +25,7 @@ export interface UseTableFiltersProps<TData> {
   ) => Promise<URLSearchParams>;
 }
 
-export interface FilterChipsBarProps {
+interface FilterChipsBarProps {
   onRemove: (key: string) => void;
   chipCount: number;
 }
@@ -36,7 +36,7 @@ export interface TablePaginationProps<TData>
   pageSizeOptions?: number[];
 }
 
-export interface ArrayCellProps {
+interface ArrayCellProps {
   items?: Array<string | number>;
   maxVisible?: number;
 }
@@ -51,21 +51,21 @@ export interface TableRowDetailsProps<T> {
   fields: TableRowField<T>[];
 }
 
-export enum EFilterTableNameIcon {
+enum EFilterTableNameIcon {
   FILTER = "filter",
   SEARCH = "search",
 }
 
-export type OnHandleIconClick = (name: EFilterTableNameIcon) => void;
+type OnHandleIconClick = (name: EFilterTableNameIcon) => void;
 
-export type FilterChipsProps = {
+type FilterChipsProps = {
   onHandleIconClick: OnHandleIconClick;
   handleFiltersChips?: (key: unknown) => void;
   removeFilter: (key: string) => void;
   filterCount: number;
 };
 
-export interface UseTableFiltersReturn {
+interface UseTableFiltersReturn {
   submitFilters: () => void;
   resetFilters: () => void;
   removeFilter: (filterId: string) => void;
@@ -131,9 +131,9 @@ export interface TableToolbarProps<TData> {
   searchPlaceholder?: string;
 }
 
-export type SortParams = { sortBy: `${string}.${"asc" | "desc"}` };
+type SortParams = { sortBy: `${string}.${"asc" | "desc"}` };
 
-export type FilterVariant = DataTableConfig["filterVariants"][number];
+type FilterVariant = DataTableConfig["filterVariants"][number];
 
 declare module "@tanstack/react-table" {
   // biome-ignore lint/correctness/noUnusedVariables: <explanation>
@@ -161,16 +161,16 @@ export interface ExtendedColumnFilter<TData> extends FilterItemSchema {
   id: Extract<keyof TData, string>;
 }
 
-export interface DataTableRowAction<TData> {
+interface DataTableRowAction<TData> {
   row: Row<TData>;
   variant: "update" | "delete";
 }
 
-export interface TableActionBarSelectionProps<TData> {
+interface TableActionBarSelectionProps<TData> {
   table: Table<TData>;
 }
 
-export const ToolbarButton = {
+const ToolbarButton = {
   FILTER: "filter",
   REFRESH: "refresh",
   COLUMNS: "columns",
@@ -182,20 +182,20 @@ export type ToolbarButtonType =
   (typeof ToolbarButton)[keyof typeof ToolbarButton];
 
 export type ViewModeButton = Extract<ToolbarButtonType, "chart" | "table">;
-export type ChipButton = Extract<ToolbarButtonType, "filter" | "columns">;
-export type ActionButton = Extract<
+type ChipButton = Extract<ToolbarButtonType, "filter" | "columns">;
+type ActionButton = Extract<
   ToolbarButtonType,
   "filter" | "columns" | "refresh"
 >;
 
-export type FilterEnabledProps = {
+type FilterEnabledProps = {
   noFilter?: false;
   filterCount: number;
   submitFilters: () => void;
   resetFilters: () => void;
 };
 
-export type FilterProps =
+type FilterProps =
   | {
       noFilter?: false;
       filterCount: number;
@@ -206,7 +206,7 @@ export type FilterProps =
       noFilter: true;
     };
 
-export type ManageColumnsProps =
+type ManageColumnsProps =
   | {
       noManageColumns?: false;
       reorderedColumnCount: number;
@@ -223,7 +223,7 @@ export interface TableDateFilterProps<TData> {
 
 export type DateSelection = Date[] | DateRange;
 
-export interface FilterFormProps<TData> {
+interface FilterFormProps<TData> {
   onSubmit: () => void;
   columns: Column<TData>[];
   open: boolean;
@@ -231,11 +231,11 @@ export interface FilterFormProps<TData> {
   onClose?: () => void;
 }
 
-export interface TableFiltersFormProps<TData> {
+interface TableFiltersFormProps<TData> {
   column: Column<TData>;
 }
 
-export type ToolbarButtonProps = React.ComponentProps<"button">;
+type ToolbarButtonProps = React.ComponentProps<"button">;
 
 export interface DataTableFacetedFilterProps<TData, TValue> {
   column?: Column<TData, TValue>;

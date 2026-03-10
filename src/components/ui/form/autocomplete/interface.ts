@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from "react";
 
-export interface IAutocompleteProps
+interface IAutocompleteProps
   extends Omit<
     DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
     | "children"
@@ -37,7 +37,7 @@ export interface AutocompleteOption {
   disabled?: boolean;
 }
 
-export interface ISelectAutoRef {
+interface ISelectAutoRef {
   focus: () => void;
 }
 export type THeightSize = `sm` | `md` | `lg`;

@@ -3,7 +3,7 @@ import { create } from "zustand/react";
 import axios, { AxiosError } from "axios";
 
 // what a rendered-notification looks like
-export type Notification = {
+type Notification = {
   id: string;
   message: string;
   type: "error" | "success" | "info" | "warning";
@@ -16,7 +16,7 @@ type NotificationState = {
   clearNotifications: () => void;
 };
 
-export const useNotificationStore = create<NotificationState>((set) => ({
+const useNotificationStore = create<NotificationState>((set) => ({
   notifications: [],
   addNotification: ({ message, type }) =>
     set((s) => ({
@@ -30,7 +30,7 @@ export const useNotificationStore = create<NotificationState>((set) => ({
 }));
 
 // -- low-level: just push one or many onto the queue --
-export const showNotification = (
+const showNotification = (
   notifs: Omit<Notification, "id"> | Omit<Notification, "id">[],
 ) => {
   const add = useNotificationStore.getState().addNotification;
