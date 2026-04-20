@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import type { Column } from "@tanstack/react-table";
-import { FilterIcon, FilterX } from "lucide-react";
+import { FilterIcon, FilterX, PlusCircleIcon } from "lucide-react";
 import { cn } from "@/utils";
 import { Button, AIBInput } from "../../form";
 import { TableSliderFilter } from "./table-slider-filter";
@@ -18,6 +18,8 @@ export function TableToolbar<TData>({
   title,
   totalItems,
   searchPlaceholder,
+  hasFilter = true,
+  handleAdd,
   ...props
 }: TableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
@@ -58,28 +60,45 @@ export function TableToolbar<TData>({
           </Badge>
         </div>
         <div className="flex justify-end gap-2">
+          {handleAdd && (
+            <Button
+              aria-label="Reset filters"
+              variant="outline"
+              size="sm"
+              onClick={handleAdd}
+            >
+              <PlusCircleIcon />
+              افزودن عضو جدید
+            </Button>
+          )}
           <TableViewOptions table={table} />
-          <Button
-            aria-label="Reset filters"
-            variant="subtle"
-            size="sm"
-            onClick={handleToggleFilter}
-          >
-            {isFiltered ? <FilterX /> : <FilterIcon />}
-            {isFiltered ? "لغو فیلتر" : "فیلتر"}
-          </Button>
+          {hasFilter && (
+            <Button
+              aria-label="Reset filters"
+              variant="subtle"
+              size="sm"
+              onClick={handleToggleFilter}
+            >
+              {isFiltered ? <FilterX /> : <FilterIcon />}
+              {isFiltered ? "لغو فیلتر" : "فیلتر"}
+            </Button>
+          )}
           <div className="w-full lg:w-[300px]">
             <SearchBar searchPlaceholder={searchPlaceholder} />
           </div>
         </div>
       </div>
-      {(toggleFilter || isFiltered) && (
-        <div className="flex w-full justify-end gap-2">
-          {columns.map((column) => (
-            <DataTableToolbarFilter key={column.id} column={column} />
-          ))}
-        </div>
-      )}
+
+      <div
+        className={cn("flex w-full justify-end gap-2 transition-[height]", {
+          "z-0 h-10": toggleFilter || isFiltered,
+          "h-0 overflow-hidden": !(toggleFilter || isFiltered),
+        })}
+      >
+        {columns.map((column) => (
+          <DataTableToolbarFilter key={column.id} column={column} />
+        ))}
+      </div>
     </div>
   );
 }

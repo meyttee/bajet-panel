@@ -1,7 +1,7 @@
 "use server";
 import { cookies } from "next/headers";
 
-async function setCookie(
+export async function setCookie(
   key: string,
   value: string,
   maxAge?: number,
@@ -12,13 +12,13 @@ async function setCookie(
   return true;
 }
 
-async function removeCookie(key: string) {
+export async function removeCookie(key: string) {
   const cookie = cookies();
   (await cookie).delete(key);
   return true;
 }
 
-async function getCookie(key: string): Promise<string | undefined> {
+export async function getCookie(key: string): Promise<string | undefined> {
   const cookie = cookies();
   return (await cookie).get(key)?.value;
 }

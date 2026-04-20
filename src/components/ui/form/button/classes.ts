@@ -9,7 +9,7 @@ const buttonVariants = cva(
         destructive: `rounded-[6px] !border !border-transparent !bg-red-600 px-3 py-2 !text-white hover:!border-red-600 hover:!bg-red-400 hover:!text-white disabled:!border-[#DC2626]/20 disabled:!bg-[#DC2626]/20`,
         outline: `rounded-[6px] border border-transparent bg-[#1E40AF] active:ring disabled:border-[#1E40AF]/32 disabled:bg-[#1E40AF]/12 disabled:text-[#1E40AF]/32`,
         ghost: `overflow-hidden rounded-[14px] p-2`,
-        link: `!border-transparent !px-3 !py-1.5 text-[#1E40AF] text-primary underline-offset-4 hover:!bg-gray-200 hover:text-[#1E40AF] active:!border-gray-400 active:!ring-0 disabled:text-[#1E40AF]/32`,
+        link: `!border-transparent !px-3 !py-1.5 text-[#1E40AF] text-primary underline-offset-4 hover:!bg-[#E5E7EB] hover:text-[#1E40AF] active:!border-gray-400 active:!ring-0 disabled:text-[#1E40AF]/32`,
         subtle: `!hover:bg-zinc-50 !hover:text-zinc-700 !hover:border-zinc-600 !border-gray-400 !text-zinc-700`,
       },
       size: {
@@ -33,7 +33,7 @@ const buttonVariants = cva(
       {
         variant: "outline",
         isFilled: false,
-        className: `hover:border-[#1E40AF] hover:bg-gray-200/40 hover:text-[#1E40AF] active:bg-[#1E40AF]/25 active:ring-0 disabled:border-[#1E40AF]/32 disabled:bg-white disabled:text-[#1E40AF]/32`,
+        className: `hover:border-[#1E40AF] hover:bg-[#E5E7EB]/40 hover:text-[#1E40AF] active:bg-[#1E40AF]/25 active:ring-0 disabled:border-[#1E40AF]/32 disabled:bg-white disabled:text-[#1E40AF]/32`,
       },
       {
         variant: "outline",

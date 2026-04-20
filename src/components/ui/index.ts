@@ -15,6 +15,5 @@ export * from "./label";
 export * from "./dialog";
 export * from "./cards";
 export * from "./table";
-export * from "./like-and-dislike";
 export * from "./pagination";
 export * from "./faceted-filter";

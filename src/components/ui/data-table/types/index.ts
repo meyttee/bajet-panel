@@ -129,6 +129,8 @@ export interface TableToolbarProps<TData> {
   totalItems: number;
   title: string;
   searchPlaceholder?: string;
+  hasFilter?: boolean;
+  handleAdd?: () => void;
 }
 
 type SortParams = { sortBy: `${string}.${"asc" | "desc"}` };

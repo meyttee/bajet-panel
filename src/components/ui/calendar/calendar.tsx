@@ -117,7 +117,7 @@ function Calendar({
           "bg-transparent outline outline-[#1E40AF] text-accent-foreground rounded-md data-[selected=true]:rounded-none",
         ),
         outside: cn(
-          "text-gray-200 aria-selected:text-muted-foreground",
+          "text-[#E5E7EB] aria-selected:text-muted-foreground",
           defaultClassNames.outside,
         ),
         disabled: cn(

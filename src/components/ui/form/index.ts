@@ -10,6 +10,5 @@ export * from "./date-picker/rhf-date-picker";
 export * from "./radio-group";
 export * from "./autocomplete";
 export * from "./uploader";
-export * from "./editor";
 export * from "./toggle";
 export * from "./date-time-picker";

@@ -3,7 +3,7 @@ import { Button } from "../form";
 import {
   ChevronDownIcon,
   ChevronLeftIcon,
-  SquarePen,
+  NotebookPen,
   Trash,
 } from "lucide-react";
 import { ColumnDef, Table } from "@tanstack/react-table";
@@ -126,7 +126,7 @@ export function useTableColumns<T>(
                     onClick={() => actions.onEdit!(row.original)}
                     size="icon"
                   >
-                    <SquarePen strokeWidth={1.5} className="size-5" />
+                    <NotebookPen strokeWidth={1.5} className="size-5" />
                   </Button>
                 )}
                 {actions.onDelete && (
@@ -174,7 +174,7 @@ export function useTableColumns<T>(
                   className="h-8 w-full gap-2 text-xs"
                   size="sm"
                 >
-                  <SquarePen strokeWidth={1.5} className="size-4" />
+                  <NotebookPen strokeWidth={1.5} className="size-4" />
                   ویرایش
                 </Button>
               )}

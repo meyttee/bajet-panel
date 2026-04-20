@@ -44,7 +44,7 @@ export const SearchBar = ({ loading, searchPlaceholder }: SearchBarProps) => {
       icon: <LoaderCircle className="animate-spin" strokeWidth={1.5} />,
     },
     search: {
-      icon: <Search className="text-gray-200" strokeWidth={1.5} />,
+      icon: <Search className="text-[#E5E7EB]" strokeWidth={1.5} />,
     },
     clear: {
       icon: (

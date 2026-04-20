@@ -29,7 +29,7 @@ function RadioGroupItem({ className, ...props }: RadioItemProps) {
     <Item
       data-slot="radio-group-item"
       className={cn(
-        "group aspect-square h-4 w-4 shrink-0 rounded-full border border-gray-500 text-[#1E40AF] transition-[color,box-shadow] outline-none focus:border-zinc-700 disabled:border-gray-200 disabled:text-gray-200 aria-invalid:border-destructive aria-invalid:ring-destructive/20 [&_svg]:h-2 [&_svg]:w-2",
+        "group aspect-square h-4 w-4 shrink-0 rounded-full border border-gray-500 text-[#1E40AF] transition-[color,box-shadow] outline-none focus:border-zinc-700 disabled:border-[#E5E7EB] disabled:text-[#E5E7EB] aria-invalid:border-destructive aria-invalid:ring-destructive/20 [&_svg]:h-2 [&_svg]:w-2",
         className,
       )}
       {...props}
@@ -38,7 +38,7 @@ function RadioGroupItem({ className, ...props }: RadioItemProps) {
         data-slot="radio-group-indicator"
         className="relative flex items-center justify-center"
       >
-        <CircleIcon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-[#1E40AF] group-disabled:fill-gray-200" />
+        <CircleIcon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-[#1E40AF] group-disabled:fill-[#E5E7EB]" />
       </Indicator>
     </Item>
   );

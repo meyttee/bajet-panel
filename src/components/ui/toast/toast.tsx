@@ -34,7 +34,7 @@ const ToastContainer = () => (
   />
 );
 
-const toast = {
+export const toast = {
   success: createToast("success"),
   info: createToast("info"),
   warning: createToast("warning"),

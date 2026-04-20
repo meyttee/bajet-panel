@@ -24,7 +24,7 @@ const Loading: FC<loadingProps> = ({ size = "md", theme = "dark" }) => {
 
   const secondChildClasses = clsx(commonClasses, "delay-[350ms]", {
     "bg-[#1E40AF]/50": theme === "dark",
-    "bg-gray-200": theme === "light",
+    "bg-[#E5E7EB]": theme === "light",
   });
 
   const thirdChildClasses = clsx(commonClasses, "delay-200", {

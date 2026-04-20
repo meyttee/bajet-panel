@@ -8,7 +8,7 @@ const TableContainer: FC<PropsWithChildren<{ hasYPadding?: boolean }>> = ({
   return (
     <div
       className={clsx("overflow-auto px-4 sm:px-8 md:px-16 lg:px-8 2xl:px-11", {
-        "pt-8 2xl:pt-10": hasYPadding,
+        "pt-8 2xl:p-10": hasYPadding,
       })}
     >
       {children}

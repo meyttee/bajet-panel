@@ -1,3 +1,5 @@
+"use client";
+
 import { FieldValues } from "react-hook-form";
 import { RhfInputProps } from "./interface";
 import {
@@ -45,3 +47,5 @@ const RHFInput = <TFieldValues extends FieldValues>({
     )}
   />
 );
+
+export default RHFInput;

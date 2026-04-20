@@ -13,7 +13,7 @@ const badgeVariants = cva(
           "border-transparent bg-destructive text-white focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40 [a&]:hover:bg-destructive/90",
         outline: "",
         filter:
-          "rounded-sm border border-gray-200 bg-secondary px-2 py-1 font-normal text-gray-500 [a&]:hover:bg-secondary/90",
+          "rounded-sm border border-[#E5E7EB] bg-secondary px-2 py-1 font-normal text-gray-500 [a&]:hover:bg-secondary/90",
       },
     },
     defaultVariants: {
