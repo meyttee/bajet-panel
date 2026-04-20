@@ -2,11 +2,16 @@
 
 import { ChatPage } from "@/components";
 import { useParams } from "next/navigation";
+import { Suspense } from "react";
 
 const Page = () => {
   const { id } = useParams();
 
-  return <ChatPage id={id as string} />;
+  return (
+    <Suspense fallback={<>loading ...</>}>
+      <ChatPage id={id as string} />
+    </Suspense>
+  );
 };
 
 export default Page;
