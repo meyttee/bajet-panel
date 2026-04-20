@@ -1,5 +1,12 @@
 import { SidebarData } from "@/components/ui";
-import { House, MessageCircle } from "lucide-react";
+import {
+  BoxIcon,
+  House,
+  MessageCircle,
+  UserIcon,
+  UsersIcon,
+  ViewIcon,
+} from "lucide-react";
 
 export const sidebarData: SidebarData = [
   {
@@ -10,17 +17,17 @@ export const sidebarData: SidebarData = [
   {
     title: "گزارش نشست‌ها",
     url: "/dashboard/reports",
-    icon: <MessageCircle height={20} width={20} />,
+    icon: <BoxIcon height={20} width={20} />,
   },
   {
     title: "مدیریت نشست‌ها",
     url: "/dashboard/manage",
-    icon: <MessageCircle height={20} width={20} />,
+    icon: <ViewIcon height={20} width={20} />,
   },
   {
     title: "مدیریت کاربران",
     url: "/dashboard/users",
-    icon: <MessageCircle height={20} width={20} />,
+    icon: <UsersIcon height={20} width={20} />,
   },
   {
     title: "مدیریت سوالات",
@@ -30,6 +37,6 @@ export const sidebarData: SidebarData = [
   {
     title: "مدیریت اعضا",
     url: "/dashboard/permissioned-users",
-    icon: <MessageCircle height={20} width={20} />,
+    icon: <UserIcon height={20} width={20} />,
   },
 ];
