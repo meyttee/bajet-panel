@@ -2,6 +2,7 @@
 
 import {
   DataTable,
+  Loading,
   TableContainer,
   TableToolbar,
   useDataTable,
@@ -13,7 +14,15 @@ import { useRouter } from "next/navigation";
 
 const UsersManagement = () => {
   const { push } = useRouter();
-  const { data } = useGetUsers();
+  const { data, isLoading } = useGetUsers();
+
+  if (isLoading) {
+    return (
+      <div className="flex h-[calc(100dvh-250px)] items-center justify-center">
+        <Loading />
+      </div>
+    );
+  }
 
   const { table } = useDataTable({
     columns: TABLE_COLS,
@@ -40,7 +49,7 @@ const UsersManagement = () => {
     <TableContainer>
       <TableToolbar
         table={table}
-        title="نشست‌ها"
+        title="کاربران"
         totalItems={data?.count || 0}
       />
       <DataTable table={table} />

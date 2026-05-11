@@ -2,6 +2,7 @@
 
 import {
   DataTable,
+  Loading,
   TableContainer,
   TableToolbar,
   useDataTable,
@@ -10,7 +11,15 @@ import { TABLE_COLS } from "./constants";
 import { useGetQuestions } from "@/services";
 
 const Questions = () => {
-  const { data } = useGetQuestions();
+  const { data, isLoading } = useGetQuestions();
+
+  if (isLoading) {
+    return (
+      <div className="flex h-[calc(100dvh-250px)] items-center justify-center">
+        <Loading />
+      </div>
+    );
+  }
 
   const { table } = useDataTable({
     columns: TABLE_COLS,
@@ -22,7 +31,7 @@ const Questions = () => {
     <TableContainer>
       <TableToolbar
         table={table}
-        title="نشست‌ها"
+        title="سوالات"
         totalItems={data?.count || 0}
         hasFilter={false}
       />

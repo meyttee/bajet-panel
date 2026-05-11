@@ -2,6 +2,7 @@
 
 import {
   DataTable,
+  Loading,
   TableContainer,
   TableToolbar,
   useDataTable,
@@ -13,7 +14,15 @@ import { useRouter } from "next/navigation";
 
 const Manage = () => {
   const { push } = useRouter();
-  const { data } = useGetManageSessions();
+  const { data, isLoading } = useGetManageSessions();
+
+  if (isLoading) {
+    return (
+      <div className="flex h-[calc(100dvh-250px)] items-center justify-center">
+        <Loading />
+      </div>
+    );
+  }
 
   const { table } = useDataTable({
     columns: TABLE_COLS,

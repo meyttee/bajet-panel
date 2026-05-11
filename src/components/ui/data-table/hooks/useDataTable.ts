@@ -395,7 +395,7 @@ export function useDataTable<TData>(props: UseTableProps<TData>) {
     ...tableProps,
     columns: tableColumns,
     initialState,
-    pageCount,
+    pageCount: Math.ceil(pageCount / perPage),
     state: {
       pagination,
       sorting,

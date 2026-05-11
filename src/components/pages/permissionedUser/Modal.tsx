@@ -23,6 +23,7 @@ import {
   useGetPermissionedUser,
   useGetPermissionedUsers,
   usePostPermissionedUser,
+  usePutPermissionedUser,
 } from "@/services";
 
 const ModalContent = ({
@@ -36,7 +37,8 @@ const ModalContent = ({
 }) => {
   const { data } = useGetPermissionedUser(id);
   const { refetch } = useGetPermissionedUsers();
-  const { mutate } = usePostPermissionedUser();
+  const { mutate: post } = usePostPermissionedUser();
+  const { mutate } = usePutPermissionedUser();
   const form = useForm<IForm>({
     resolver: zodResolver(schema),
   });
@@ -55,24 +57,46 @@ const ModalContent = ({
   }, [data?.data]);
 
   const onSubmit = (data: IForm) => {
-    mutate(
-      {
-        data: {
-          ...data,
-          role: role as string,
-          user_permissions: permissions,
-          username:
-            "-JM7MnbslmCwg0PmkHPySbJzytVRL29SGEk2IvSoP9-hmV9nYDIIBWIQmPOUdt2IpCp_5T3EV8Hi-7uHoX9L_0E",
+    if (id) {
+      mutate(
+        {
+          data: {
+            ...data,
+            role: role as string,
+            user_permissions: permissions,
+            username:
+              "-JM7MnbslmCwg0PmkHPySbJzytVRL29SGEk2IvSoP9-hmV9nYDIIBWIQmPOUdt2IpCp_5T3EV8Hi-7uHoX9L_0E",
+          },
+          id,
         },
-      },
-      {
-        onSuccess: () => {
-          refetch();
-          onOpenChange();
-          reset();
+        {
+          onSuccess: () => {
+            refetch();
+            onOpenChange();
+            reset();
+          },
         },
-      },
-    );
+      );
+    } else {
+      post(
+        {
+          data: {
+            ...data,
+            role: role as string,
+            user_permissions: permissions,
+            username:
+              "-JM7MnbslmCwg0PmkHPySbJzytVRL29SGEk2IvSoP9-hmV9nYDIIBWIQmPOUdt2IpCp_5T3EV8Hi-7uHoX9L_0E",
+          },
+        },
+        {
+          onSuccess: () => {
+            refetch();
+            onOpenChange();
+            reset();
+          },
+        },
+      );
+    }
   };
 
   return (
@@ -82,7 +106,7 @@ const ModalContent = ({
         onOpenChange();
         reset();
       }}
-      title="ویرایش کاربر"
+      title={id ? "ویرایش کاربر" : "افزودن کاربر"}
     >
       <Form {...form}>
         <form
@@ -160,10 +184,16 @@ const ModalContent = ({
           <RhfInput control={control} name="personnel_code" label="کد پرسنلی" />
           <RhfInput control={control} name="phone_number" label="تلفن همراه" />
           <h1 className="text-sm font-medium text-gray-700">تعیین رمزعبور</h1>
-          <RhfInput control={control} name="password" label="رمز عبور" />
+          <RhfInput
+            control={control}
+            type="password"
+            name="password"
+            label="رمز عبور"
+          />
           <RhfInput
             control={control}
             name="confirm_password"
+            type="password"
             label="تکرار رمزعبور"
           />
           <div className="flex justify-end gap-2">

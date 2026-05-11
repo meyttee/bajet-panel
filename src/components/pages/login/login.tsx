@@ -9,6 +9,7 @@ import { zodSchema } from "./schema";
 import { setCookie } from "@/utils";
 import axios from "axios";
 import { useLoginMutation } from "@/services";
+import Image from "next/image";
 
 interface IForm {
   username: string;
@@ -25,25 +26,27 @@ const Login = () => {
     },
   });
   const { handleSubmit, control } = form;
-  const { mutateAsync: loginMutation, isPending } = useLoginMutation();
+  const { mutate: loginMutation, isPending } = useLoginMutation();
 
-  const submitHandler = async (data: IForm) => {
-    try {
-      const response = await loginMutation({
+  const submitHandler = (data: IForm) => {
+    loginMutation(
+      {
         password: data.password,
         username: data.username,
-      });
-
-      if (response.statusText === "OK") {
-        await setCookie("access", response.data.access);
-        await setCookie("refresh", response.data.refresh);
-        push("/dashboard/reports");
-      }
-    } catch (e) {
-      if (axios.isAxiosError(e)) {
-        toast.error(e.response?.data.detail);
-      }
-    }
+      },
+      {
+        onSuccess: async (response) => {
+          await setCookie("access", response.data.access);
+          await setCookie("refresh", response.data.refresh);
+          push("/dashboard/reports");
+        },
+        onError(error) {
+          if (axios.isAxiosError(error)) {
+            toast.error(error.response?.data.detail);
+          }
+        },
+      },
+    );
   };
   return (
     <div className="flex h-screen w-full items-center">
@@ -71,7 +74,9 @@ const Login = () => {
           </Button>
         </form>
       </Form>
-      <div className="flex w-1/2 flex-col gap-3 px-[136px]">
+
+      <div className="flex h-4/5 w-1/2 flex-col justify-center gap-3 border-r border-[#18181B] px-[136px]">
+        <Image src="/logo.png" alt="logo" height={59} width={178} />
         <h1 className="text-xl font-semibold">انتخابی از جنس تحول دیجیتال</h1>
         <p>
           تولید تصویر، گفتگوی صوتی و Agent هوش مصنوعی لورم ایپسوم متن ساختگی با

@@ -6,6 +6,7 @@ const TABLE_COLS: ColumnDef<ISession>[] = [
   {
     header: "پیش نمایش نشست",
     id: "title",
+    enableSorting: false,
     accessorFn: ({ title }) => title,
     meta: {
       label: "پیش نمایش نشست",

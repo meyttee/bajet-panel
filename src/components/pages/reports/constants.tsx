@@ -12,21 +12,38 @@ const ROLES = {
 const TABLE_COLS: ColumnDef<IReport>[] = [
   {
     header: "شناسه نشست",
+    enableSorting: false,
     id: "id",
     accessorFn: ({ chat }) => chat.id,
     maxSize: 150,
   },
   {
     header: "متن پیام",
+    enableSorting: false,
     id: "content",
     accessorKey: "content",
     maxSize: 150,
   },
   {
     header: "فرستنده",
+    enableSorting: false,
     id: "role",
     accessorFn: ({ role }) => ROLES[role],
     maxSize: 150,
+    meta: {
+      label: "فرستنده",
+      variant: "select",
+      options: [
+        {
+          label: "کاربر",
+          value: "user",
+        },
+        {
+          label: "چت بات",
+          value: "assistant",
+        },
+      ],
+    },
   },
   {
     header: "زمان",
@@ -41,6 +58,7 @@ const TABLE_COLS: ColumnDef<IReport>[] = [
   },
   {
     header: "موضوع",
+    enableSorting: false,
     id: "subject",
     accessorFn: ({ chat }) => chat.title,
   },
@@ -49,6 +67,7 @@ const TABLE_COLS: ColumnDef<IReport>[] = [
     id: "feedback",
     accessorKey: "feedback",
     enableColumnFilter: true,
+    enableSorting: false,
     cell(props) {
       const status = props.row.original.feedback === "like";
       return (

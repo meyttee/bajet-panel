@@ -8,6 +8,7 @@ const TABLE_COLS: ColumnDef<IQuestion>[] = [
   {
     header: "پیش نمایش چت",
     id: "user_query",
+    enableSorting: false,
     accessorFn: ({ user_query }) => user_query,
     meta: {
       label: "پیش نمایش چت",
@@ -16,6 +17,7 @@ const TABLE_COLS: ColumnDef<IQuestion>[] = [
   {
     header: "ارزیابی کاربر",
     id: "user_feedback",
+    enableSorting: false,
     accessorFn: ({ user_feedback }) => user_feedback,
     cell(props) {
       const status = props.row.original.user_feedback === "like";
@@ -57,6 +59,7 @@ const TABLE_COLS: ColumnDef<IQuestion>[] = [
   },
   {
     header: "ارزیابی ادمین",
+    enableSorting: false,
     id: "admin_feedback",
     accessorFn: ({ admin_feedback }) => admin_feedback,
     cell(props) {
@@ -90,6 +93,7 @@ const TABLE_COLS: ColumnDef<IQuestion>[] = [
   },
   {
     header: "وضعیت",
+    enableSorting: false,
     id: "status",
     accessorFn: ({ status }) => status,
     cell(props) {

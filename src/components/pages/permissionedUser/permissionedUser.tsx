@@ -2,6 +2,7 @@
 
 import {
   DataTable,
+  Loading,
   Modal,
   TableContainer,
   TableToolbar,
@@ -15,7 +16,7 @@ import ModalContent from "./Modal";
 const PermissionedUser = () => {
   const [userId, setUserId] = useState<number>();
   const [isOpen, setIsOpen] = useState(false);
-  const { data } = useGetPermissionedUsers();
+  const { data, isLoading } = useGetPermissionedUsers();
   const { table } = useDataTable({
     columns: TABLE_COLS,
     data: data?.results || [],
@@ -24,6 +25,14 @@ const PermissionedUser = () => {
       onEdit: (row) => setUserId(row.id),
     },
   });
+
+  if (isLoading) {
+    return (
+      <div className="flex h-[calc(100dvh-250px)] items-center justify-center">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <TableContainer>
@@ -38,7 +47,7 @@ const PermissionedUser = () => {
 
       <TableToolbar
         table={table}
-        title="نشست‌ها"
+        title="اعضا"
         handleAdd={() => setIsOpen(true)}
         totalItems={data?.count || 0}
       />

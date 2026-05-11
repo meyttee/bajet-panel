@@ -112,6 +112,13 @@ const useGetPermissionedUser = (id?: number) =>
     enabled: !!id,
   });
 
+const useGetPermissionedUserMutation = () =>
+  useMutation({
+    mutationKey: ["useGetPermissionedUserMutation"],
+    mutationFn: async (id?: number) =>
+      await api.get<IPermissionedUser>(`/user/v1/${id}`),
+  });
+
 const usePostPermissionedUser = () =>
   useMutation({
     mutationKey: ["useGetPermissionedUser"],
@@ -120,6 +127,18 @@ const usePostPermissionedUser = () =>
     }: {
       data: Omit<IPermissionedUser, "id" | "last_login">;
     }) => await api.post(`/user/v1/`, data),
+  });
+
+const usePutPermissionedUser = () =>
+  useMutation({
+    mutationKey: ["useGetPermissionedUser"],
+    mutationFn: async ({
+      data,
+      id,
+    }: {
+      data: Omit<IPermissionedUser, "id" | "last_login">;
+      id?: number | string;
+    }) => await api.put(`/user/v1/${id}`, data),
   });
 
 export {
@@ -132,4 +151,6 @@ export {
   useGetPermissionedUsers,
   useGetPermissionedUser,
   usePostPermissionedUser,
+  useGetPermissionedUserMutation,
+  usePutPermissionedUser,
 };

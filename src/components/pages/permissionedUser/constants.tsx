@@ -19,6 +19,7 @@ const TABLE_COLS: ColumnDef<IPermissionedUser>[] = [
     id: "phone_number__contains",
     accessorFn: ({ phone_number }) => phone_number || "-",
     enableColumnFilter: true,
+    enableSorting: false,
     meta: {
       label: "شماره همراه",
       variant: "text",
@@ -30,17 +31,18 @@ const TABLE_COLS: ColumnDef<IPermissionedUser>[] = [
     accessorFn: ({ role }) =>
       role ? (role === "admin" ? "مالک" : "کاربر") : "-",
     enableColumnFilter: true,
+    enableSorting: false,
     meta: {
       label: "نقش",
       variant: "select",
       options: [
         {
           label: "کاربر",
-          value: "admin",
+          value: "user",
         },
         {
           label: "مالک",
-          value: "user",
+          value: "admin",
         },
       ],
     },
