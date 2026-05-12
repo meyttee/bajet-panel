@@ -16,14 +16,6 @@ const UsersManagement = () => {
   const { push } = useRouter();
   const { data, isLoading } = useGetUsers();
 
-  if (isLoading) {
-    return (
-      <div className="flex h-[calc(100dvh-250px)] items-center justify-center">
-        <Loading />
-      </div>
-    );
-  }
-
   const { table } = useDataTable({
     columns: TABLE_COLS,
     data: data?.results || [],
@@ -45,6 +37,13 @@ const UsersManagement = () => {
     },
   });
 
+  if (isLoading) {
+    return (
+      <div className="flex h-[calc(100dvh-250px)] items-center justify-center">
+        <Loading />
+      </div>
+    );
+  }
   return (
     <TableContainer>
       <TableToolbar

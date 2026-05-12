@@ -13,6 +13,12 @@ import { useGetQuestions } from "@/services";
 const Questions = () => {
   const { data, isLoading } = useGetQuestions();
 
+  const { table } = useDataTable({
+    columns: TABLE_COLS,
+    data: data?.results || [],
+    pageCount: 1,
+  });
+
   if (isLoading) {
     return (
       <div className="flex h-[calc(100dvh-250px)] items-center justify-center">
@@ -20,12 +26,6 @@ const Questions = () => {
       </div>
     );
   }
-
-  const { table } = useDataTable({
-    columns: TABLE_COLS,
-    data: data?.results || [],
-    pageCount: 1,
-  });
 
   return (
     <TableContainer>
