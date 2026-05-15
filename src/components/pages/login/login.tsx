@@ -38,7 +38,7 @@ const Login = () => {
         onSuccess: async (response) => {
           await setCookie("access", response.data.access);
           await setCookie("refresh", response.data.refresh);
-          push("/dashboard/reports");
+          push("/dashboard");
         },
         onError(error) {
           if (axios.isAxiosError(error)) {

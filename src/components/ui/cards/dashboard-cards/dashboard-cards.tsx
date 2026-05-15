@@ -107,7 +107,7 @@ type CardProps = {
   filterLabel?: string;
 };
 
-const Card: FC<PropsWithChildren<CardProps>> = ({
+export const Card: FC<PropsWithChildren<CardProps>> = ({
   children,
   hasFooter = false,
   title,

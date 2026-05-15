@@ -1,6 +1,6 @@
 export interface ChatHeaderProps {
-  id: string;
-  model: string;
+  id: string | number;
   created_at: string;
-  status: "like" | "dislike" | null;
+  status?: boolean;
+  isChecked?: string;
 }

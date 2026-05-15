@@ -57,40 +57,40 @@ const TABLE_COLS: ColumnDef<IQuestion>[] = [
       label: "تاریخ و ساعت",
     },
   },
-  {
-    header: "ارزیابی ادمین",
-    enableSorting: false,
-    id: "admin_feedback",
-    accessorFn: ({ admin_feedback }) => admin_feedback,
-    cell(props) {
-      const status = props.row.original.admin_feedback === "like";
-      return props.row.original.admin_feedback ? (
-        <div
-          className={cn(
-            "flex w-fit items-center gap-1 rounded-sm px-1.5 py-1 outline",
-            {
-              "bg-green-100 text-green-600 outline-green-500": status,
-              "bg-red-50 text-red-600 outline-red-600": !status,
-            },
-          )}
-        >
-          {status ? (
-            <ThumbsUp className="size-5 stroke-1" />
-          ) : (
-            <ThumbsDown className="size-5 stroke-1" />
-          )}
-          <span className="text-xs leading-4">
-            {status ? "پسندیدم" : "نپسندیدم"}
-          </span>
-        </div>
-      ) : (
-        "-"
-      );
-    },
-    meta: {
-      label: "ارزیابی ادمین",
-    },
-  },
+  // {
+  //   header: "ارزیابی ادمین",
+  //   enableSorting: false,
+  //   id: "admin_feedback",
+  //   accessorFn: ({ admin_feedback }) => admin_feedback,
+  //   cell(props) {
+  //     const status = props.row.original.admin_feedback === "like";
+  //     return props.row.original.admin_feedback ? (
+  //       <div
+  //         className={cn(
+  //           "flex w-fit items-center gap-1 rounded-sm px-1.5 py-1 outline",
+  //           {
+  //             "bg-green-100 text-green-600 outline-green-500": status,
+  //             "bg-red-50 text-red-600 outline-red-600": !status,
+  //           },
+  //         )}
+  //       >
+  //         {status ? (
+  //           <ThumbsUp className="size-5 stroke-1" />
+  //         ) : (
+  //           <ThumbsDown className="size-5 stroke-1" />
+  //         )}
+  //         <span className="text-xs leading-4">
+  //           {status ? "پسندیدم" : "نپسندیدم"}
+  //         </span>
+  //       </div>
+  //     ) : (
+  //       "-"
+  //     );
+  //   },
+  //   meta: {
+  //     label: "ارزیابی ادمین",
+  //   },
+  // },
   {
     header: "وضعیت",
     enableSorting: false,

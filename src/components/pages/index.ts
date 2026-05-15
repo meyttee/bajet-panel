@@ -5,3 +5,5 @@ export * from "./questions";
 export * from "./users";
 export * from "./login";
 export * from "./permissionedUser";
+export * from "./resourceManager";
+export * from "./dashboard";

@@ -190,7 +190,6 @@ export function useDataTable<TData>(props: UseTableProps<TData>) {
 
   const debouncedSetFilterValues = useDebouncedCallback(
     (values: typeof filterValues) => {
-      void setPage(1);
       void setFilterValues(values);
     },
     debounceMs,
@@ -395,7 +394,7 @@ export function useDataTable<TData>(props: UseTableProps<TData>) {
     ...tableProps,
     columns: tableColumns,
     initialState,
-    pageCount: Math.ceil(pageCount / perPage),
+    pageCount,
     state: {
       pagination,
       sorting,

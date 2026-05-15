@@ -141,6 +141,31 @@ const usePutPermissionedUser = () =>
     }) => await api.put(`/user/v1/${id}`, data),
   });
 
+const useGetDashboardCardsData = (filter: string) =>
+  useQuery({
+    queryKey: ["useGetDashboardCardsData", filter],
+    queryFn: async () =>
+      await api.get(`/cyra_reg/v1/dashboard/card?filter=${filter}`),
+  });
+
+const useGetMessageCounts = (filter: string) =>
+  useQuery({
+    queryKey: ["useGetMessageCounts", filter],
+    queryFn: async () =>
+      await api.get<{ name: string; y: string }[]>(
+        `/cyra_reg/v1/dashboard/messages?filter=${filter}`,
+      ),
+  });
+
+const useGetFeedbacks = (filter: string) =>
+  useQuery({
+    queryKey: ["useGetFeedbacks", filter],
+    queryFn: async () =>
+      await api.get<{ name: string; y: string }[]>(
+        `/cyra_reg/v1/dashboard/feedback?filter=${filter}`,
+      ),
+  });
+
 export {
   useGetReports,
   useGetReportById,
@@ -153,4 +178,7 @@ export {
   usePostPermissionedUser,
   useGetPermissionedUserMutation,
   usePutPermissionedUser,
+  useGetDashboardCardsData,
+  useGetMessageCounts,
+  useGetFeedbacks,
 };

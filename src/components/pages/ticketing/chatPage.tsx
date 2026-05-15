@@ -45,7 +45,6 @@ const ChatPage: FC<{ id: string }> = ({ id }) => {
       <ChatHeader
         created_at="2026-02-24T11:17:43.686376Z"
         id={id}
-        model="GPT 5"
         status="like"
       />
       <ChatMessage messages={data.messages} />
