@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronsRight, X } from "lucide-react";
+import { Power, X } from "lucide-react";
 import clsx from "clsx";
 import {
   Sidebar,
@@ -15,12 +15,21 @@ import {
 import { AibSidebarProps } from "./type";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip/tooltip";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { removeCookie } from "@/utils";
 
 export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
   const { state, isMobile, toggleSidebar } = useSidebar();
   const isCollapsed = state === "collapsed";
   const pathname = usePathname();
+  const { push } = useRouter();
+
+  const onExit = async () => {
+    await removeCookie("access");
+    await removeCookie("refresh");
+
+    push("/login");
+  };
 
   return (
     <Sidebar
@@ -30,13 +39,13 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
       variant="sidebar"
       className="fixed z-10 h-[100vh]"
     >
-      <SidebarHeader className="flex w-full items-center justify-between rounded-tl-xl bg-[#1E40AF] px-3 pt-2 pb-6 text-slate-200">
+      <SidebarHeader className="flex h-12.5 items-center justify-between overflow-hidden rounded-tl-xl bg-[#1E40AF] px-3 pt-2 pb-6 text-slate-200">
         <Image
           src="/header-logo.png"
           alt="header-logo"
           width={100}
           height={50}
-          className="invert"
+          className="h-12.5 w-25 invert"
         />
         {isMobile && <X onClick={toggleSidebar} />}
       </SidebarHeader>
@@ -60,7 +69,7 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
                     className={clsx(
                       "flex h-11 w-full cursor-pointer items-center justify-center",
                       {
-                        "bg-white text-cyan-300": isActive,
+                        "rounded-full bg-white text-[#1E40AF]": isActive,
                         "text-slate-200": !isActive,
                       },
                     )}
@@ -79,7 +88,7 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
               <SidebarGroup key={item.url} className="justify-start p-0">
                 <SidebarGroupLabel
                   asChild
-                  className={clsx("rounded-none text-sm hover:bg-white/10", {
+                  className={clsx("rounded-2xl text-sm hover:bg-white/10", {
                     "h-14 border-b-1 border-[#1E40AF]/32": isMobile,
                     "h-11": !isMobile,
                     "rounded-2xl bg-white text-[#1E40AF]": isActive,
@@ -93,7 +102,7 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
                     )}
                   >
                     <span className="shrink-0 text-xl">{item.icon}</span>
-                    <span className="text-right text-[14px] leading-[20px] font-normal tracking-[0%]">
+                    <span className="text-right text-[14px] leading-[20px] font-normal tracking-normal">
                       {item.title}
                     </span>
                   </Link>
@@ -104,16 +113,9 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
         </div>
         {!isMobile && (
           <div
-            onClick={toggleSidebar}
-            className="absolute right-0 bottom-0 flex h-11 w-full cursor-pointer items-center justify-start gap-1 rounded-none border-t-1 pr-5 text-slate-200"
+            onClick={onExit}
+            className="absolute right-0 bottom-0 flex h-11 w-full cursor-pointer items-center justify-between gap-1 rounded-none border-t-1 px-5 pr-5 text-slate-200"
           >
-            <ChevronsRight
-              width={20}
-              height={20}
-              className={clsx("transition-transform duration-300 ease-linear", {
-                "rotate-180": isCollapsed,
-              })}
-            />
             <span
               className={clsx(
                 "truncate text-right text-sm leading-5 font-normal tracking-normal transition-transform duration-300",
@@ -122,8 +124,16 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
                 },
               )}
             >
-              جمع شدن منو
+              خروج
             </span>
+            <Power
+              width={20}
+              height={20}
+              className={clsx(
+                "transition-transform duration-300 ease-linear",
+                {},
+              )}
+            />
           </div>
         )}
       </SidebarContent>

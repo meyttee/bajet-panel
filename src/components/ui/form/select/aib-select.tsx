@@ -106,8 +106,8 @@ function SelectItem({
       className={cn(
         "relative flex w-full cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-none select-none",
         "bg-white hover:bg-gray-100",
-        "data-[state=checked]:bg-[#1E40AF]/12 data-[state=checked]:text-[#1E40AF]",
-        "data-[state=checked]:hover:bg-[#1E40AF]/32",
+        "data-[state=checked]:bg-teal-600/12 data-[state=checked]:text-teal-600",
+        "data-[state=checked]:hover:bg-teal-600/32",
         "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
@@ -116,7 +116,7 @@ function SelectItem({
     >
       <span className="absolute left-2 flex size-3.5 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
-          <CheckIcon className="size-4 text-[#1E40AF]" />
+          <CheckIcon className="size-4 text-teal-600" />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
@@ -173,4 +173,15 @@ function SelectScrollDownButton({
   );
 }
 
-export { Select, SelectContent, SelectItem, SelectTrigger, SelectValue };
+export {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+};

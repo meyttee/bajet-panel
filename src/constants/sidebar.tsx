@@ -1,6 +1,7 @@
 import { SidebarData } from "@/components/ui";
 import {
   BoxIcon,
+  DatabaseIcon,
   House,
   MessageCircle,
   UserIcon,
@@ -14,11 +15,11 @@ export const sidebarData: SidebarData = [
     url: "/dashboard",
     icon: <House height={20} width={20} />,
   },
-  {
-    title: "گزارش نشست‌ها",
-    url: "/dashboard/reports",
-    icon: <BoxIcon height={20} width={20} />,
-  },
+  // {
+  //   title: "گزارش نشست‌ها",
+  //   url: "/dashboard/reports",
+  //   icon: <BoxIcon height={20} width={20} />,
+  // },
   {
     title: "مدیریت نشست‌ها",
     url: "/dashboard/manage",
@@ -38,5 +39,10 @@ export const sidebarData: SidebarData = [
     title: "مدیریت اعضا",
     url: "/dashboard/permissioned-users",
     icon: <UserIcon height={20} width={20} />,
+  },
+  {
+    title: "مدیریت منابع",
+    url: "/dashboard/resource-manager",
+    icon: <DatabaseIcon height={20} width={20} />,
   },
 ];
