@@ -70,7 +70,11 @@ const Question = () => {
           },
         ]}
       />
-      <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="flex flex-col gap-5"
+        //@ts-ignore
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="mx-10 flex flex-col gap-1.5">
           <label htmlFor="textarea" className="text-sm text-[#6B7280]">
             بازخورد بررسی کننده
