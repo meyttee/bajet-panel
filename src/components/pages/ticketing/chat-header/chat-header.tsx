@@ -55,19 +55,18 @@ const ChatHeader: FC<ChatHeaderProps> = ({
             className={cn(
               "flex w-fit items-center gap-1 rounded-sm px-1.5 py-1 outline",
               {
-                "bg-green-100 text-green-600 outline-green-500":
-                  isChecked === "like",
-                "bg-red-50 text-red-600 outline-red-600": isChecked !== "like",
+                "bg-green-100 text-green-600 outline-green-500": isChecked,
+                "bg-red-50 text-red-600 outline-red-600": !isChecked,
               },
             )}
           >
-            {isChecked === "like" ? (
+            {isChecked ? (
               <ThumbsUp className="size-5 stroke-1" />
             ) : (
               <ThumbsDown className="size-5 stroke-1" />
             )}
             <span className="text-xs leading-4">
-              {isChecked === "like" ? "پسندیده شده" : "پسندیده نشده"}
+              {isChecked ? "پسندیده شده" : "پسندیده نشده"}
             </span>
           </div>
         )}
