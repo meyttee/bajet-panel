@@ -166,6 +166,18 @@ const useGetFeedbacks = (filter: string) =>
       ),
   });
 
+const usePutFeedback = () =>
+  useMutation({
+    mutationKey: ["usePutFeedback"],
+    mutationFn: async ({
+      data,
+      id,
+    }: {
+      data: { admin_feedback: string };
+      id?: number | string;
+    }) => await api.put(`/cyra_reg/v1/questions/${id}/feedback`, data),
+  });
+
 export {
   useGetReports,
   useGetReportById,
@@ -181,4 +193,5 @@ export {
   useGetDashboardCardsData,
   useGetMessageCounts,
   useGetFeedbacks,
+  usePutFeedback,
 };
