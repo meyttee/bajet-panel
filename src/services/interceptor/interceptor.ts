@@ -1,7 +1,7 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 
 import { QueueItem } from "@/types";
-import { getCookie } from "@/utils";
+import { getCookie, removeCookie, setCookie } from "@/utils";
 
 const api = axios.create({
   baseURL: process.env["NEXT_PUBLIC_BASE_API"],
@@ -59,22 +59,33 @@ api.interceptors.response.use(
       const refreshToken = await getCookie("refresh");
 
       try {
-        const { data } = await axios.post<{ access: string }>(
+        const data = await axios.post<{ access: string }>(
           `${process.env["NEXT_PUBLIC_BASE_API"]}token/refresh/`,
           { refresh: refreshToken },
         );
 
-        localStorage.setItem("access", data.access);
-        api.defaults.headers.common["Authorization"] = `Bearer ${data.access}`;
-        originalRequest.headers.Authorization = `Bearer ${data.access}`;
+        if (data.status === 401) {
+          processQueue("error", null);
+          removeCookie("access");
+          removeCookie("refresh");
 
-        processQueue(null, data.access);
+          window.location.href = "/login";
 
-        return api(originalRequest);
+          return Promise.reject("error");
+        } else {
+          setCookie("access", data.data.access);
+          api.defaults.headers.common["Authorization"] =
+            `Bearer ${data.data.access}`;
+          originalRequest.headers.Authorization = `Bearer ${data.data.access}`;
+
+          processQueue(null, data.data.access);
+
+          return api(originalRequest);
+        }
       } catch (refreshError) {
         processQueue(refreshError, null);
-        localStorage.removeItem("access");
-        localStorage.removeItem("refresh");
+        removeCookie("access");
+        removeCookie("refresh");
 
         window.location.href = "/login";
 
