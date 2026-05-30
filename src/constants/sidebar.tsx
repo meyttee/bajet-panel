@@ -15,11 +15,11 @@ export const sidebarData: SidebarData = [
     url: "/dashboard",
     icon: <House height={20} width={20} />,
   },
-  // {
-  //   title: "گزارش نشست‌ها",
-  //   url: "/dashboard/reports",
-  //   icon: <BoxIcon height={20} width={20} />,
-  // },
+  {
+    title: "دانش‌نامه مدیریار",
+    url: "/dashboard/assisstant",
+    icon: <BoxIcon height={20} width={20} />,
+  },
   {
     title: "مدیریت نشست‌ها",
     url: "/dashboard/manage",

@@ -157,6 +157,15 @@ const useGetMessageCounts = (filter: string) =>
       ),
   });
 
+const useGetAreaChartData = (filter: string) =>
+  useQuery({
+    queryKey: ["useGetAreaChartData", filter],
+    queryFn: async () =>
+      await api.get<any>(
+        `/cyra_reg/v1/dashboard/word-cloud?chart_type=line&filter=${filter}&role=all`,
+      ),
+  });
+
 const useGetFeedbacks = (filter: string) =>
   useQuery({
     queryKey: ["useGetFeedbacks", filter],
@@ -194,4 +203,5 @@ export {
   useGetMessageCounts,
   useGetFeedbacks,
   usePutFeedback,
+  useGetAreaChartData,
 };

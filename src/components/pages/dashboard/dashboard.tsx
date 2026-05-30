@@ -13,6 +13,8 @@ import { WalletIcon } from "lucide-react";
 import { useState } from "react";
 import SimpleBarChart from "./barChart";
 import TwoLevelPieChart from "./piChart";
+import { SimpleAreaChart } from "./areaChart";
+import BarCharts from "./barChart_2";
 
 const FILTER_FA = {
   at_first: "از ابتدا",
@@ -190,9 +192,10 @@ const Dashboard = () => {
           </span>
         </div>
       </div>
-
       <SimpleBarChart />
       <TwoLevelPieChart />
+      <BarCharts />
+      <SimpleAreaChart />
     </div>
   );
 };

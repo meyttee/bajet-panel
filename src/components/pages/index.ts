@@ -7,3 +7,4 @@ export * from "./login";
 export * from "./permissionedUser";
 export * from "./resourceManager";
 export * from "./dashboard";
+export * from "./assisstant";
