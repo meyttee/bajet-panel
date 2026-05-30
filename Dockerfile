@@ -1,6 +1,6 @@
 FROM docker.arvancloud.ir/node:lts
 WORKDIR /admin_panel
-COPY package*.json pnpm-lock.yaml ./
+COPY package*.json ./
 
 # update npm and install pnpm from npm
 
