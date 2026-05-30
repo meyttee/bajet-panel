@@ -31,12 +31,6 @@ const Questions = () => {
     },
   });
 
-  const { table } = useDataTable({
-    columns: TABLE_COLS,
-    data: data?.results || [],
-    pageCount: 1,
-  });
-
   if (isLoading) {
     return (
       <div className="flex h-[calc(100dvh-250px)] items-center justify-center">
