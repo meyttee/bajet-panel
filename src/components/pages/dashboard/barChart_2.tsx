@@ -1,3 +1,7 @@
+import { useState } from "react";
+import moment from "moment-jalaali";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+
 import {
   Select,
   SelectContent,
@@ -6,18 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui";
-import { useGetMessageCounts } from "@/services";
-import moment from "moment-jalaali";
-import { useState } from "react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from "recharts";
+import { useGetBarChartData } from "@/services";
 
 const FILTER_FA = {
   at_first: "از ابتدا",
@@ -28,7 +21,7 @@ const FILTER_FA = {
 
 const BarCharts = () => {
   const [filter, setFilter] = useState("at_first");
-  const { data } = useGetMessageCounts(filter);
+  const { data } = useGetBarChartData(filter);
   return (
     <div className="col-span-1 flex flex-col gap-4 rounded-[10px] border border-[#E5E7EB] p-5 shadow-[0px_2px_6px_0px_#00000014]">
       <div className="flex items-center justify-between">
@@ -60,17 +53,14 @@ const BarCharts = () => {
           aspectRatio: 1,
         }}
         responsive
-        data={data?.data.map((item) => ({
-          ...item,
-          name: moment(item.name).format("jYYYY/jMM/jDD"),
-        }))}
+        data={data?.data.chart.data}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis dataKey="y" />
-        <Tooltip formatter={(val) => ``} />
+        <XAxis dataKey="keyword" />
+        <YAxis dataKey="count" />
+        <Tooltip />
         <Bar
-          dataKey="y"
+          dataKey="count"
           fill="#1E40AF"
           maxBarSize={14}
           radius={[10, 10, 0, 0]}

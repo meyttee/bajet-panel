@@ -11,10 +11,16 @@ import { TABLE_COLS } from "./constants";
 import { useGetQuestions } from "@/services";
 import { MessageSquareMore } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useQueryState } from "nuqs";
+import { useEffect } from "react";
 
 const Questions = () => {
   const { data, isLoading } = useGetQuestions();
   const { push } = useRouter();
+  const [key, setKey] = useQueryState("export", {
+    defaultValue: "",
+    clearOnDefault: true,
+  });
 
   const { table } = useDataTable({
     columns: TABLE_COLS,
@@ -31,6 +37,18 @@ const Questions = () => {
     },
   });
 
+  useEffect(() => {
+    if (data?.export) {
+      const elem = document.createElement("a");
+      elem.id = "#export";
+      elem.target = "_blink";
+      elem.href = data.export;
+      elem.click();
+      elem.remove();
+      setKey("");
+    }
+  }, [data]);
+
   if (isLoading) {
     return (
       <div className="flex h-[calc(100dvh-250px)] items-center justify-center">
@@ -46,6 +64,8 @@ const Questions = () => {
         title="سوالات"
         totalItems={data?.count || 0}
         hasFilter={false}
+        hasExport
+        handleExport={() => setKey("csv")}
       />
       <DataTable table={table} />
     </TableContainer>

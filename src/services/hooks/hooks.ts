@@ -9,6 +9,7 @@ import {
   IGetReportsResponsePayload,
   IGetSessionsResponsePayload,
   IGetUsersResponsePayload,
+  ILineChart,
   ILogiPayload,
   IPermissionedUser,
   IQuestion,
@@ -173,8 +174,17 @@ const useGetAreaChartData = (filter: string) =>
   useQuery({
     queryKey: ["useGetAreaChartData", filter],
     queryFn: async () =>
-      await api.get<any>(
+      await api.get<ILineChart>(
         `/cyra_reg/v1/dashboard/word-cloud?chart_type=line&filter=${filter}&role=all`,
+      ),
+  });
+
+const useGetBarChartData = (filter: string) =>
+  useQuery({
+    queryKey: ["useGetBarChartData", filter],
+    queryFn: async () =>
+      await api.get<ILineChart>(
+        `/cyra_reg/v1/dashboard/word-cloud?chart_type=bar&&filter=${filter}&role=all`,
       ),
   });
 
@@ -217,4 +227,5 @@ export {
   usePutFeedback,
   useGetAreaChartData,
   useGetQuestionById,
+  useGetBarChartData,
 };

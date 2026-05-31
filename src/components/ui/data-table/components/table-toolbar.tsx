@@ -2,7 +2,12 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import type { Column } from "@tanstack/react-table";
-import { FilterIcon, FilterX, PlusCircleIcon } from "lucide-react";
+import {
+  ArrowDownCircle,
+  FilterIcon,
+  FilterX,
+  PlusCircleIcon,
+} from "lucide-react";
 import { cn } from "@/utils";
 import { Button, AIBInput } from "../../form";
 import { TableSliderFilter } from "./table-slider-filter";
@@ -20,6 +25,8 @@ export function TableToolbar<TData>({
   searchPlaceholder,
   hasFilter = true,
   handleAdd,
+  hasExport,
+  handleExport,
   ...props
 }: TableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
@@ -71,6 +78,18 @@ export function TableToolbar<TData>({
               افزودن عضو جدید
             </Button>
           )}
+          {hasExport && (
+            <Button
+              aria-label="Reset filters"
+              variant="outline"
+              size="sm"
+              onClick={handleExport}
+            >
+              <ArrowDownCircle />
+              دانلود گزارش
+            </Button>
+          )}
+
           <TableViewOptions table={table} />
           {hasFilter && (
             <Button

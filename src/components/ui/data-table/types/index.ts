@@ -131,6 +131,8 @@ export interface TableToolbarProps<TData> {
   searchPlaceholder?: string;
   hasFilter?: boolean;
   handleAdd?: () => void;
+  hasExport?: boolean;
+  handleExport?: () => void;
 }
 
 type SortParams = { sortBy: `${string}.${"asc" | "desc"}` };

@@ -82,6 +82,7 @@ interface IGetQuestionsResponsePayload {
   next: string | null;
   previous: string | null;
   results: IQuestion[];
+  export: string;
 }
 
 interface IUsers {
@@ -121,6 +122,56 @@ interface IGetPermissionedUsers {
   results: IPermissionedUser[];
 }
 
+interface ILineChart {
+  success: boolean;
+  chart: {
+    type: string;
+    xKey: string;
+    series: [
+      {
+        key: string;
+        name: string;
+        color: string;
+      },
+    ];
+    data: {
+      keyword: string;
+      count: number;
+    }[];
+    title: string;
+  };
+  summary: {
+    total_messages: number;
+    total_words: number;
+    unique_words: number;
+  };
+}
+
+interface IBarChart {
+  success: boolean;
+  chart: {
+    type: string;
+    xKey: string;
+    series: [
+      {
+        key: string;
+        name: string;
+        color: string;
+      },
+    ];
+    data: {
+      keyword: string;
+      count: number;
+    }[];
+    title: string;
+  };
+  summary: {
+    total_messages: number;
+    total_words: number;
+    unique_words: number;
+  };
+}
+
 export type {
   ILogiPayload,
   IReport,
@@ -135,4 +186,6 @@ export type {
   IGetUsersResponsePayload,
   IPermissionedUser,
   IGetPermissionedUsers,
+  ILineChart,
+  IBarChart,
 };
