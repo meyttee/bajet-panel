@@ -12,7 +12,7 @@ const ChatHeader: FC<ChatHeaderProps> = ({
   created_at,
   id,
   status,
-  isChecked,
+  feedback,
 }) => {
   const { back } = useRouter();
 
@@ -50,23 +50,25 @@ const ChatHeader: FC<ChatHeaderProps> = ({
             {status ? "بررسی شده" : "بررسی نشده"}
           </span>
         </div>
-        {isChecked && (
+        {feedback && (
           <div
             className={cn(
               "flex w-fit items-center gap-1 rounded-sm px-1.5 py-1 outline",
               {
-                "bg-green-100 text-green-600 outline-green-500": isChecked,
-                "bg-red-50 text-red-600 outline-red-600": !isChecked,
+                "bg-green-100 text-green-600 outline-green-500":
+                  feedback === "like",
+                "bg-red-50 text-red-600 outline-red-600":
+                  feedback === "dislike",
               },
             )}
           >
-            {isChecked ? (
+            {feedback === "like" ? (
               <ThumbsUp className="size-5 stroke-1" />
             ) : (
               <ThumbsDown className="size-5 stroke-1" />
             )}
             <span className="text-xs leading-4">
-              {isChecked ? "پسندیده شده" : "پسندیده نشده"}
+              {feedback === "like" ? "پسندیده شده" : "پسندیده نشده"}
             </span>
           </div>
         )}

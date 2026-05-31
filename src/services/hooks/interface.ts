@@ -74,6 +74,7 @@ interface IQuestion {
   user_feedback: string;
   admin_feedback: string;
   status: boolean;
+  feedback: "like" | "dislike";
 }
 
 interface IGetQuestionsResponsePayload {

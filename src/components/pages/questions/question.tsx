@@ -45,8 +45,8 @@ const Question = () => {
       <ChatHeader
         created_at={questionData?.timestamp as string}
         id=""
-        status={questionData?.user_feedback === "like"}
-        isChecked={questionData?.status}
+        status={questionData?.status}
+        feedback={questionData?.feedback}
       />
       <ChatMessage
         messages={[
@@ -76,7 +76,10 @@ const Question = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="mx-10 flex flex-col gap-1.5">
-          <label htmlFor="textarea" className="text-sm text-[#6B7280]">
+          <label
+            htmlFor="textarea"
+            className="text-sm text-[#6B7280] disabled:opacity-80"
+          >
             بازخورد بررسی کننده
           </label>
           <Controller
@@ -85,20 +88,26 @@ const Question = () => {
             render={({ field }) => (
               <textarea
                 id="textarea"
-                className="rounded-[20px] border border-[#6B7280] px-3 py-2 text-sm"
+                className="rounded-[20px] border border-[#6B7280] px-3 py-2 text-sm disabled:opacity-80"
                 placeholder="متن راهنما پیش‌فرض"
                 rows={5}
                 {...field}
-                disabled={questionData?.status}
+                disabled={!!questionData?.admin_feedback}
               />
             )}
           />
         </div>
         <div className="flex w-full justify-center gap-5">
-          <Button isFilled type="submit" disabled={questionData?.status}>
+          <Button
+            isFilled
+            type="submit"
+            disabled={!!questionData?.admin_feedback}
+          >
             ثبت نظر
           </Button>
-          <Button onClick={back}>لغو</Button>
+          <Button onClick={back} disabled={!!questionData?.admin_feedback}>
+            لغو
+          </Button>
         </div>
       </form>
     </div>
