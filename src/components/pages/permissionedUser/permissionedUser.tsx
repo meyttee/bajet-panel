@@ -20,7 +20,7 @@ const PermissionedUser = () => {
   const { table } = useDataTable({
     columns: TABLE_COLS,
     data: data?.results || [],
-    pageCount: 1,
+    pageCount: data?.all_page || 1,
     actions: {
       onEdit: (row) => setUserId(row.id),
     },

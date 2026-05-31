@@ -12,8 +12,8 @@ interface IReport {
 
 interface IGetReportsResponsePayload {
   count: number;
-  next: string | null;
-  previous: string | null;
+  all_page: number;
+  page: string | null;
   results: IReport[];
 }
 
@@ -61,8 +61,8 @@ interface ISession {
 
 interface IGetSessionsResponsePayload {
   count: number;
-  next: string | null;
-  previous: string | null;
+  all_page: number;
+  page: string | null;
   results: ISession[];
 }
 
@@ -79,8 +79,8 @@ interface IQuestion {
 
 interface IGetQuestionsResponsePayload {
   count: number;
-  next: string | null;
-  previous: string | null;
+  all_page: number;
+  page: string | null;
   results: IQuestion[];
   export: string;
 }
@@ -95,8 +95,8 @@ interface IUsers {
 
 interface IGetUsersResponsePayload {
   count: number;
-  next: string | null;
-  previous: string | null;
+  all_page: number;
+  page: string | null;
   results: IUsers[];
 }
 
@@ -117,8 +117,8 @@ interface IPermissionedUser {
 
 interface IGetPermissionedUsers {
   count: number;
-  next: string | null;
-  previous: string | null;
+  all_page: number;
+  page: string | null;
   results: IPermissionedUser[];
 }
 
