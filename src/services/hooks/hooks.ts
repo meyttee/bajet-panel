@@ -11,6 +11,7 @@ import {
   IGetUsersResponsePayload,
   ILogiPayload,
   IPermissionedUser,
+  IQuestion,
 } from "./interface";
 import { api } from "../interceptor";
 
@@ -67,6 +68,17 @@ const useGetQuestions = () => {
       return res.data;
     },
     queryKey: ["useGetQuestions", params],
+  });
+};
+
+const useGetQuestionById = (id: string) => {
+  const params = useQueryParams();
+  return useQuery({
+    queryFn: async () => {
+      const res = await api.get<IQuestion>(`/cyra_reg/v1/questions/${id}/`);
+      return res.data;
+    },
+    queryKey: ["useGetQuestionById", id],
   });
 };
 
@@ -204,4 +216,5 @@ export {
   useGetFeedbacks,
   usePutFeedback,
   useGetAreaChartData,
+  useGetQuestionById,
 };

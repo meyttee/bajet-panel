@@ -2,17 +2,26 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { ChatHeader } from "../ticketing/chat-header";
-import { useGetQuestions, usePutFeedback } from "@/services";
+import {
+  useGetQuestionById,
+  useGetQuestions,
+  usePutFeedback,
+} from "@/services";
 import { ChatMessage } from "../ticketing/chat-message";
 import { Button, Loading } from "@/components/ui";
 import { Controller, useForm } from "react-hook-form";
 
 const Question = () => {
   const params = useParams();
-  const { data, isLoading, refetch } = useGetQuestions();
   const { back } = useRouter();
   const { control, handleSubmit, reset } = useForm();
   const { mutate } = usePutFeedback();
+
+  const {
+    data: questionData,
+    isLoading,
+    refetch,
+  } = useGetQuestionById(params.slug as string);
 
   const onSubmit = (data: { admin_feedback: string }) => {
     mutate(
@@ -37,9 +46,6 @@ const Question = () => {
     );
   }
 
-  const questionData = data?.results.find(
-    (result) => String(result.id) === params.slug,
-  );
   return (
     <div className="flex h-[calc(100vh-80px)] flex-col bg-white">
       <ChatHeader
@@ -85,6 +91,7 @@ const Question = () => {
           <Controller
             name="admin_feedback"
             control={control}
+            defaultValue={questionData?.admin_feedback || ""}
             render={({ field }) => (
               <textarea
                 id="textarea"
