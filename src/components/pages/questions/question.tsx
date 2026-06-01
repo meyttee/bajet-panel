@@ -75,6 +75,7 @@ const Question = () => {
             role: "assistant",
           },
         ]}
+        defaultMessage={questionData?.user_feedback}
       />
       <form
         className="flex flex-col gap-5"

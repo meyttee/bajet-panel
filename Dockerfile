@@ -9,6 +9,6 @@ RUN npm install -g npm@latest \
     && pnpm i 
 
 COPY . /admin_panel
-RUN pnpm build
+RUN npm run build
 EXPOSE 3000
-CMD ["pnpm", "start"]
+CMD ["npm", "start"]

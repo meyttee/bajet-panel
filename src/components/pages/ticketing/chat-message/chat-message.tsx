@@ -5,7 +5,10 @@ import { ThumbsDown, ThumbsUp } from "lucide-react";
 import { cn } from "@/utils";
 import { IMessage } from "@/services";
 
-const ChatMessage: FC<{ messages: IMessage[] }> = ({ messages }) => {
+const ChatMessage: FC<{ messages: IMessage[]; defaultMessage?: string }> = ({
+  messages,
+  defaultMessage,
+}) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -52,6 +55,19 @@ const ChatMessage: FC<{ messages: IMessage[] }> = ({ messages }) => {
           </div>
         </div>
       ))}
+      {defaultMessage && (
+        <>
+          <div className="mt-6 border-t border-[#D1D5DB]" />
+          <div className="mt-6 flex w-full flex-col justify-start rounded-[20px] rounded-br-[8px] border border-[#F3F4F6] bg-[#BFDBFE] p-4 text-right text-[#52525B]">
+            <p className="text-base font-medium text-[#52525B]">
+              بازخورد کاربر
+            </p>
+            <p className="text-sm leading-relaxed font-normal break-words whitespace-pre-wrap">
+              {defaultMessage}
+            </p>
+          </div>
+        </>
+      )}
 
       <div ref={messagesEndRef} />
     </div>

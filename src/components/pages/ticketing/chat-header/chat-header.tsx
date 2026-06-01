@@ -37,19 +37,21 @@ const ChatHeader: FC<ChatHeaderProps> = ({
         )}
       </div>
       <div className="flex items-center justify-center gap-x-2">
-        <div
-          className={cn(
-            "flex h-7 w-fit items-center gap-1 rounded-sm px-1.5 py-1 outline",
-            {
-              "bg-green-100 text-green-600 outline-green-500": status,
-              "bg-red-50 text-red-600 outline-red-600": !status,
-            },
-          )}
-        >
-          <span className="text-xs leading-4">
-            {status ? "بررسی شده" : "بررسی نشده"}
-          </span>
-        </div>
+        {status && (
+          <div
+            className={cn(
+              "flex h-7 w-fit items-center gap-1 rounded-sm px-1.5 py-1 outline",
+              {
+                "bg-green-100 text-green-600 outline-green-500": status,
+                "bg-red-50 text-red-600 outline-red-600": !status,
+              },
+            )}
+          >
+            <span className="text-xs leading-4">
+              {status ? "بررسی شده" : "بررسی نشده"}
+            </span>
+          </div>
+        )}
         {feedback && (
           <div
             className={cn(

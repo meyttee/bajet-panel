@@ -48,7 +48,7 @@ const ModalContent = ({
   const { control, handleSubmit, reset } = form;
 
   useEffect(() => {
-    setRole((data?.data.role as "admin" | "user") || "admin");
+    setRole("admin");
     setPermissions(data?.data.user_permissions || []);
     reset({
       personnel_code: data?.data.personnel_code || "",
@@ -113,8 +113,8 @@ const ModalContent = ({
           className="flex w-full flex-col gap-4"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-sm font-medium text-gray-700">سطح دسترسی</h1>
-          <div className="flex max-w-full justify-between gap-3">
+          {/* <h1 className="text-sm font-medium text-gray-700">سطح دسترسی</h1> */}
+          {/* <div className="flex max-w-full justify-between gap-3">
             <Button
               aria-label="Toggle columns"
               variant="subtle"
@@ -179,7 +179,7 @@ const ModalContent = ({
                 </Command>
               </PopoverContent>
             </Popover>
-          </div>
+          </div> */}
           <h1 className="text-sm font-medium text-gray-700">اطلاعات عضو</h1>
           <RhfInput control={control} name="personnel_code" label="کد پرسنلی" />
           <RhfInput control={control} name="phone_number" label="تلفن همراه" />

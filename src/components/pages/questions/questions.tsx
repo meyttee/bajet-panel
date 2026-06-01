@@ -63,7 +63,6 @@ const Questions = () => {
         table={table}
         title="سوالات"
         totalItems={data?.count || 0}
-        hasFilter={false}
         hasExport
         handleExport={() => setKey("csv")}
       />

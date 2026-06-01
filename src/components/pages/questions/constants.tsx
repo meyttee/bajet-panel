@@ -68,8 +68,20 @@ const TABLE_COLS: ColumnDef<IQuestion>[] = [
         "-"
       );
     },
+    enableColumnFilter: true,
     meta: {
       label: "ارزیابی کاربر",
+      variant: "select",
+      options: [
+        {
+          label: "پسندیدم",
+          value: "like",
+        },
+        {
+          label: "نپسندیدم",
+          value: "dislike",
+        },
+      ],
     },
   },
 
@@ -96,8 +108,20 @@ const TABLE_COLS: ColumnDef<IQuestion>[] = [
         </div>
       );
     },
+    enableColumnFilter: true,
     meta: {
       label: "وضعیت",
+      variant: "select",
+      options: [
+        {
+          label: "پسندیدم",
+          value: "like",
+        },
+        {
+          label: "نپسندیدم",
+          value: "dislike",
+        },
+      ],
     },
   },
 ];
