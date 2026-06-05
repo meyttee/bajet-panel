@@ -57,13 +57,14 @@ const BarCharts = () => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="keyword" />
-        <YAxis dataKey="count" />
+        <YAxis dataKey="count" dx={-30} />
         <Tooltip />
         <Bar
           dataKey="count"
           fill="#1E40AF"
           maxBarSize={14}
           radius={[10, 10, 0, 0]}
+          name="تعداد"
         />
       </BarChart>
     </div>

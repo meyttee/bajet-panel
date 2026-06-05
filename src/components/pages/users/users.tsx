@@ -9,12 +9,12 @@ import {
 } from "@/components";
 import { TABLE_COLS } from "./constants";
 import { useGetUsers } from "@/services";
-import { MessageSquareMore } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const UsersManagement = () => {
-  const { push } = useRouter();
   const { data, isLoading } = useGetUsers();
+
+  console.log(data);
 
   const { table } = useDataTable({
     columns: TABLE_COLS,

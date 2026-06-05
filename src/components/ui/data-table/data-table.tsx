@@ -75,16 +75,16 @@ export function DataTable<TData>({
         <div
           data-slot="table-container"
           className={cn(
-            "flex max-h-[calc(100vh-194px)] w-full flex-col gap-2.5 overflow-hidden",
+            "flex w-full flex-col gap-2.5 overflow-auto",
             className,
           )}
           {...props}
         >
-          <div className="overflow-x-auto">
+          <div className="relative overflow-x-auto">
             <Table>
-              <TableHeader className="overflow-hidden">
+              <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id} className="sticky top-0">
+                  <TableRow key={headerGroup.id}>
                     {headerGroup.headers.map((header, headerIndex) => {
                       const columnDef = header.column.columnDef;
                       const size = header.getSize();
@@ -122,7 +122,7 @@ export function DataTable<TData>({
                 ))}
               </TableHeader>
 
-              <TableBody className="overflow-y-auto">
+              <TableBody>
                 {hasData ? (
                   table.getRowModel().rows.map((row) => {
                     const isRowExpanded = expandedRows.has(row.id);

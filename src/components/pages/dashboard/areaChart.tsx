@@ -68,7 +68,7 @@ export const SimpleAreaChart = () => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="keyword" niceTicks="snap125" />
-        <YAxis dataKey="count" niceTicks="snap125" />
+        <YAxis dataKey="count" niceTicks="snap125" dx={-30} />
         <Tooltip />
 
         <Area
@@ -77,6 +77,7 @@ export const SimpleAreaChart = () => {
           stackId="1"
           stroke="#1E40AF"
           fill="#1E40AF"
+          name="تعداد"
         />
       </AreaChart>
     </div>

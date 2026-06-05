@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useMutation, useQuery } from "@tanstack/react-query";
 
 import { useQueryParams } from "@/hooks";
 
@@ -28,6 +28,7 @@ const useGetReports = () => {
       );
       return res.data;
     },
+    placeholderData: keepPreviousData,
     queryKey: ["useGetReports", params],
   });
 };
@@ -40,6 +41,7 @@ const useGetReportById = (id: string) =>
       );
       return res.data;
     },
+    placeholderData: keepPreviousData,
     queryKey: ["useGetReportById", id],
   });
 
@@ -52,6 +54,7 @@ const useGetManageSessions = () => {
       });
       return res.data;
     },
+    placeholderData: keepPreviousData,
     queryKey: ["useGetManageSessions", params],
   });
 };
@@ -62,29 +65,29 @@ const useGetQuestions = () => {
     queryFn: async () => {
       const res = await api.get<IGetQuestionsResponsePayload>(
         "/cyra_reg/v1/questions",
-        {
-          params,
-        },
+        { params },
       );
       return res.data;
     },
+    placeholderData: keepPreviousData,
     queryKey: ["useGetQuestions", params],
   });
 };
 
 const useGetQuestionById = (id: string) => {
-  const params = useQueryParams();
   return useQuery({
     queryFn: async () => {
       const res = await api.get<IQuestion>(`/cyra_reg/v1/questions/${id}/`);
       return res.data;
     },
     queryKey: ["useGetQuestionById", id],
+    placeholderData: keepPreviousData,
   });
 };
 
 const useGetUsers = () => {
   const params = useQueryParams();
+
   return useQuery({
     queryFn: async () => {
       const res = await api.get<IGetUsersResponsePayload>(
@@ -96,6 +99,7 @@ const useGetUsers = () => {
       return res.data;
     },
     queryKey: ["useGetUsers", params],
+    placeholderData: keepPreviousData,
   });
 };
 
@@ -115,6 +119,7 @@ const useGetPermissionedUsers = () => {
       return res.data;
     },
     queryKey: ["useGetPermissionedUsers", params],
+    placeholderData: keepPreviousData,
   });
 };
 
@@ -123,6 +128,7 @@ const useGetPermissionedUser = (id?: number) =>
     queryKey: ["useGetPermissionedUser", id],
     queryFn: async () => await api.get<IPermissionedUser>(`/user/v1/${id}`),
     enabled: !!id,
+    placeholderData: keepPreviousData,
   });
 
 const useGetPermissionedUserMutation = () =>
@@ -157,6 +163,7 @@ const usePutPermissionedUser = () =>
 const useGetDashboardCardsData = (filter: string) =>
   useQuery({
     queryKey: ["useGetDashboardCardsData", filter],
+    placeholderData: keepPreviousData,
     queryFn: async () =>
       await api.get(`/cyra_reg/v1/dashboard/card?filter=${filter}`),
   });
@@ -164,6 +171,7 @@ const useGetDashboardCardsData = (filter: string) =>
 const useGetMessageCounts = (filter: string) =>
   useQuery({
     queryKey: ["useGetMessageCounts", filter],
+    placeholderData: keepPreviousData,
     queryFn: async () =>
       await api.get<{ name: string; y: string }[]>(
         `/cyra_reg/v1/dashboard/messages?filter=${filter}`,
@@ -173,6 +181,7 @@ const useGetMessageCounts = (filter: string) =>
 const useGetAreaChartData = (filter: string) =>
   useQuery({
     queryKey: ["useGetAreaChartData", filter],
+    placeholderData: keepPreviousData,
     queryFn: async () =>
       await api.get<ILineChart>(
         `/cyra_reg/v1/dashboard/word-cloud?chart_type=line&filter=${filter}&role=all`,
@@ -182,6 +191,7 @@ const useGetAreaChartData = (filter: string) =>
 const useGetBarChartData = (filter: string) =>
   useQuery({
     queryKey: ["useGetBarChartData", filter],
+    placeholderData: keepPreviousData,
     queryFn: async () =>
       await api.get<ILineChart>(
         `/cyra_reg/v1/dashboard/word-cloud?chart_type=bar&&filter=${filter}&role=all`,
@@ -191,6 +201,7 @@ const useGetBarChartData = (filter: string) =>
 const useGetFeedbacks = (filter: string) =>
   useQuery({
     queryKey: ["useGetFeedbacks", filter],
+    placeholderData: keepPreviousData,
     queryFn: async () =>
       await api.get<{ name: string; y: string }[]>(
         `/cyra_reg/v1/dashboard/feedback?filter=${filter}`,

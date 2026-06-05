@@ -25,28 +25,28 @@ const TABLE_COLS: ColumnDef<IPermissionedUser>[] = [
       variant: "text",
     },
   },
-  {
-    header: "نقش",
-    id: "role",
-    accessorFn: ({ role }) =>
-      role ? (role === "admin" ? "مالک" : "کاربر") : "-",
-    enableColumnFilter: true,
-    enableSorting: false,
-    meta: {
-      label: "نقش",
-      variant: "select",
-      options: [
-        {
-          label: "کاربر",
-          value: "user",
-        },
-        {
-          label: "مالک",
-          value: "admin",
-        },
-      ],
-    },
-  },
+  // {
+  //   header: "نقش",
+  //   id: "role",
+  //   accessorFn: ({ role }) =>
+  //     role ? (role === "admin" ? "مالک" : "کاربر") : "-",
+  //   enableColumnFilter: true,
+  //   enableSorting: false,
+  //   meta: {
+  //     label: "نقش",
+  //     variant: "select",
+  //     options: [
+  //       {
+  //         label: "کاربر",
+  //         value: "user",
+  //       },
+  //       {
+  //         label: "مالک",
+  //         value: "admin",
+  //       },
+  //     ],
+  //   },
+  // },
   {
     header: "آخرین ورود",
     id: "last_login",

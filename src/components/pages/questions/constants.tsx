@@ -114,12 +114,12 @@ const TABLE_COLS: ColumnDef<IQuestion>[] = [
       variant: "select",
       options: [
         {
-          label: "پسندیدم",
-          value: "like",
+          label: "بررسی شده",
+          value: "true",
         },
         {
-          label: "نپسندیدم",
-          value: "dislike",
+          label: "بررسی نشده",
+          value: "false",
         },
       ],
     },

@@ -67,13 +67,14 @@ const SimpleBarChart = () => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis dataKey="y" />
-        <Tooltip formatter={(val) => ``} />
+        <YAxis dataKey="y" dx={-30} />
+        <Tooltip />
         <Bar
           dataKey="y"
           fill="#1E40AF"
           maxBarSize={14}
           radius={[10, 10, 0, 0]}
+          name="تعداد"
         />
       </BarChart>
     </div>
