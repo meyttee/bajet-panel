@@ -100,22 +100,15 @@ const Question = () => {
                 placeholder="متن راهنما پیش‌فرض"
                 rows={5}
                 {...field}
-                disabled={!!questionData?.admin_feedback}
               />
             )}
           />
         </div>
         <div className="flex w-full justify-center gap-5">
-          <Button
-            isFilled
-            type="submit"
-            disabled={!!questionData?.admin_feedback}
-          >
+          <Button isFilled type="submit">
             ثبت نظر
           </Button>
-          <Button onClick={back} disabled={!!questionData?.admin_feedback}>
-            لغو
-          </Button>
+          <Button onClick={back}>لغو</Button>
         </div>
       </form>
     </div>
