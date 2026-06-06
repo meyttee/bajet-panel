@@ -33,6 +33,7 @@ const Question = () => {
         onSuccess: () => {
           refetch();
           reset();
+          back();
         },
       },
     );
