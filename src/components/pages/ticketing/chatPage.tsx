@@ -44,7 +44,7 @@ const ChatPage: FC<{ id: string }> = ({ id }) => {
     <div className="flex h-[calc(100vh-80px)] flex-col bg-white">
       <ChatHeader
         created_at={
-          data.messages[data.messages.length].created_at ||
+          data.messages[data.messages.length - 1].created_at ||
           new Date().toLocaleString()
         }
         id={id}
