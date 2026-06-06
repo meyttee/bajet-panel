@@ -43,7 +43,10 @@ const ChatPage: FC<{ id: string }> = ({ id }) => {
   return (
     <div className="flex h-[calc(100vh-80px)] flex-col bg-white">
       <ChatHeader
-        created_at={data.messages[data.messages.length].created_at || ""}
+        created_at={
+          data.messages[data.messages.length].created_at ||
+          new Date().toLocaleString()
+        }
         id={id}
       />
       <ChatMessage messages={data.messages.toReversed()} />
