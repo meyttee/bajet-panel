@@ -42,8 +42,11 @@ const ChatPage: FC<{ id: string }> = ({ id }) => {
 
   return (
     <div className="flex h-[calc(100vh-80px)] flex-col bg-white">
-      <ChatHeader created_at="2026-02-24T11:17:43.686376Z" id={id} />
-      <ChatMessage messages={data.messages} />
+      <ChatHeader
+        created_at={data.messages[data.messages.length].created_at}
+        id={id}
+      />
+      <ChatMessage messages={data.messages.toReversed()} />
     </div>
   );
 };
