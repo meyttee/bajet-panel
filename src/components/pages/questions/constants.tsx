@@ -19,7 +19,7 @@ const TABLE_COLS: ColumnDef<IQuestion>[] = [
     header: "تاریخ و ساعت",
     id: "timestamp",
     accessorFn: ({ timestamp }) =>
-      moment(timestamp).format("HH:mm jYYYY/jMM/jDD"),
+      moment(timestamp).format("HH:MM jYYYY/jMM/jDD"),
     meta: {
       label: "تاریخ و ساعت",
     },

@@ -23,7 +23,7 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
   placeholder = strings.dateTimePlaceHolder,
   granularity = "minute",
   className,
-  outputFormat = "YYYY-MM-DDTHH:mm",
+  outputFormat = "YYYY-MM-DDTHH:MM",
   displayFormat,
 }) => {
   const [open, setOpen] = useState(false);
@@ -57,7 +57,7 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
     if (!date) return "";
     if (displayFormat) return moment(date).format(displayFormat);
     return moment(date).format(
-      `jYYYY/jMM/jDD HH:mm${granularity === "second" ? ":ss" : ""}`,
+      `jYYYY/jMM/jDD HH:MM${granularity === "second" ? ":ss" : ""}`,
     );
   };
 

@@ -10,7 +10,7 @@ import { setCookie } from "@/utils";
 import axios from "axios";
 import { useLoginMutation } from "@/services";
 import Image from "next/image";
-import moment from "moment-jalaali";
+import Link from "next/link";
 
 interface IForm {
   username: string;
@@ -53,36 +53,46 @@ const Login = () => {
     <div className="flex h-screen w-full items-center">
       <Form {...form}>
         <form
-          className="flex w-1/2 flex-col gap-5 px-20"
+          className="flex w-1/2 flex-col items-center gap-9"
           onSubmit={handleSubmit(submitHandler)}
         >
+          <Image alt="logo" src="/logo.svg" width={125} height={160} />
           <h1 className="mx-auto text-base font-medium">ورود</h1>
-          <RhfInput control={control} name="username" label="نام کاربری" />
-          <RhfInput
-            control={control}
-            name="password"
-            type="password"
-            label="رمزعبور"
-          />
-          <Button
-            size="full"
-            variant="outline"
-            isFilled
-            type="submit"
-            loading={isPending}
-          >
-            ورود
-          </Button>
+          <div className="flex w-[424px] flex-col gap-5 px-5">
+            <RhfInput control={control} name="username" label="نام کاربری" />
+            <RhfInput
+              control={control}
+              name="password"
+              type="password"
+              label="رمزعبور"
+            />
+            <Button
+              size="full"
+              variant="outline"
+              isFilled
+              type="submit"
+              loading={isPending}
+            >
+              ورود
+            </Button>
+          </div>
+          <p className="text-xs leading-4">
+            ثبت نام شما به منزله پذیرش{" "}
+            <Link href="#" prefetch className="text-[#1E40AF]">
+              قوانین و شرایط{" "}
+            </Link>{" "}
+            استفاده از خدمات chatbank است.
+          </p>
         </form>
       </Form>
 
-      <div className="flex h-4/5 w-1/2 flex-col justify-center gap-3 border-r border-[#18181B] px-[136px]">
-        <Image src="/logo.png" alt="logo" height={59} width={178} />
-        <h1 className="text-xl font-semibold">انتخابی از جنس تحول دیجیتال</h1>
-        <p>
-          تولید تصویر، گفتگوی صوتی و Agent هوش مصنوعی لورم ایپسوم متن ساختگی با
-          تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-        </p>
+      <div className="relative mx-16 my-14 flex h-4/5 w-1/2">
+        <Image
+          src="/login-banner.webp"
+          alt="logo"
+          fill
+          className="rounded-[40px]"
+        />
       </div>
     </div>
   );

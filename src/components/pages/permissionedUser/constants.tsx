@@ -8,7 +8,6 @@ const TABLE_COLS: ColumnDef<IPermissionedUser>[] = [
     header: "کد پرسنلی",
     id: "personnel_code",
     accessorFn: ({ personnel_code }) => personnel_code || "-",
-    enableColumnFilter: true,
     meta: {
       label: "کد پرسنلی",
       variant: "text",
@@ -18,7 +17,6 @@ const TABLE_COLS: ColumnDef<IPermissionedUser>[] = [
     header: "شماره همراه",
     id: "phone_number__contains",
     accessorFn: ({ phone_number }) => phone_number || "-",
-    enableColumnFilter: true,
     enableSorting: false,
     meta: {
       label: "شماره همراه",
@@ -51,7 +49,7 @@ const TABLE_COLS: ColumnDef<IPermissionedUser>[] = [
     header: "آخرین ورود",
     id: "last_login",
     accessorFn: ({ last_login }) =>
-      last_login ? moment(last_login).format("HH:mm jYYYY/jMM/jDD") : "-",
+      last_login ? moment(last_login).format("HH:MM jYYYY/jMM/jDD") : "-",
     meta: {
       label: "آخرین ورود",
     },

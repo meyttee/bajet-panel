@@ -138,6 +138,13 @@ const useGetPermissionedUserMutation = () =>
       await api.get<IPermissionedUser>(`/user/v1/${id}`),
   });
 
+const useDeletePermissionedUser = () =>
+  useMutation({
+    mutationKey: ["useDeletePermissionedUser"],
+    mutationFn: async (id?: number) =>
+      await api.delete<IPermissionedUser>(`/user/v1/${id}`),
+  });
+
 const usePostPermissionedUser = () =>
   useMutation({
     mutationKey: ["useGetPermissionedUser"],
@@ -239,4 +246,5 @@ export {
   useGetAreaChartData,
   useGetQuestionById,
   useGetBarChartData,
+  useDeletePermissionedUser,
 };

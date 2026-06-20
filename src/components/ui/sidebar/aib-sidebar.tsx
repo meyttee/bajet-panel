@@ -39,17 +39,19 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
       variant="sidebar"
       className="fixed z-10 h-[100vh]"
     >
-      <SidebarHeader className="flex h-12.5 items-center justify-between overflow-hidden rounded-tl-xl bg-[#1E40AF] px-3 pt-2 pb-6 text-slate-200">
+      <SidebarHeader className="flex items-center justify-between overflow-hidden rounded-tl-xl bg-[#1E40AF] px-3 py-4 text-slate-200">
         <Image
           src="/header-logo.png"
           alt="header-logo"
           width={100}
           height={50}
-          className="h-12.5 w-25 invert"
+          className="w-25 invert"
         />
         {isMobile && <X onClick={toggleSidebar} />}
       </SidebarHeader>
-      <SidebarContent className={clsx("relative rounded-bl-md bg-[#1E40AF]")}>
+      <SidebarContent
+        className={clsx("relative rounded-bl-md bg-[#1E40AF] pt-4")}
+      >
         <div
           className={clsx(
             "scrollbar flex flex-col overflow-x-hidden overflow-y-auto pb-16",

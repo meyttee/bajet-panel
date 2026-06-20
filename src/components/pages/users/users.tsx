@@ -14,8 +14,6 @@ import { useRouter } from "next/navigation";
 const UsersManagement = () => {
   const { data, isLoading } = useGetUsers();
 
-  console.log(data);
-
   const { table } = useDataTable({
     columns: TABLE_COLS,
     data: data?.results || [],

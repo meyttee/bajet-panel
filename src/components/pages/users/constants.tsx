@@ -40,12 +40,12 @@ const TABLE_COLS: ColumnDef<IUsers>[] = [
   },
   {
     header: "آخرین فعالیت",
-    id: "chats__created_at",
+    id: "last_chat_created_at",
     accessorFn: ({ last_activity }) =>
-      last_activity ? moment(last_activity).format("HH:mm jYYYY/jMM/jDD") : "-",
+      last_activity ? moment(last_activity).format("HH:MM jYYYY/jMM/jDD") : "-",
     enableColumnFilter: true,
     meta: {
-      variant: "date",
+      variant: "dateRange",
       label: "آخرین فعالیت",
     },
   },

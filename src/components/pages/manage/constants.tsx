@@ -16,7 +16,7 @@ const TABLE_COLS: ColumnDef<ISession>[] = [
     header: "تاریخ و ساعت",
     id: "created_at__date",
     accessorFn: ({ created_at }) =>
-      moment(created_at).format("HH:mm jYYYY/jMM/jDD"),
+      moment(created_at).format("HH:MM jYYYY/jMM/jDD"),
     enableColumnFilter: true,
     meta: {
       label: "تاریخ و ساعت",
