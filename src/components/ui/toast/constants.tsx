@@ -3,9 +3,9 @@ import { CircleCheck, CircleX, Info, TriangleAlert } from "lucide-react";
 import { LoadingRectangle, ToastTypeProps, ToastTypes } from "./interface";
 
 const loadingIconRectangles: LoadingRectangle[] = [
-  { bgColor: "bg-[#1E40AF]", delay: "delay-[2000ms]" },
-  { bgColor: "bg-[#1E40AF]/50", delay: "delay-[1000ms]" },
-  { bgColor: "bg-[#1E40AF]/12", delay: "delay-[75ms]" },
+  { bgColor: "bg-[#262261]", delay: "delay-[2000ms]" },
+  { bgColor: "bg-[#262261]/50", delay: "delay-[1000ms]" },
+  { bgColor: "bg-[#262261]/12", delay: "delay-[75ms]" },
 ];
 
 export const toastTypesMap: Record<ToastTypes, ToastTypeProps> = {

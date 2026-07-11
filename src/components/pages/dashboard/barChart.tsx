@@ -30,7 +30,7 @@ const SimpleBarChart = () => {
   const [filter, setFilter] = useState("at_first");
   const { data } = useGetMessageCounts(filter);
   return (
-    <div className="col-span-3 flex flex-col gap-4 rounded-[10px] border border-[#E5E7EB] p-5 shadow-[0px_2px_6px_0px_#00000014]">
+    <div className="flex w-full flex-col gap-4 rounded-[10px] border border-[#E5E7EB] p-5 shadow-[0px_2px_6px_0px_#00000014]">
       <div className="flex items-center justify-between">
         <span className="text-sm leading-6 font-medium text-[#3F3F46]">
           تعداد پیام‌ها
@@ -69,13 +69,7 @@ const SimpleBarChart = () => {
         <XAxis dataKey="name" />
         <YAxis dataKey="y" dx={-30} />
         <Tooltip />
-        <Bar
-          dataKey="y"
-          fill="#1E40AF"
-          maxBarSize={14}
-          radius={[10, 10, 0, 0]}
-          name="تعداد"
-        />
+        <Bar dataKey="y" fill="#7873CE" radius={[4, 4, 0, 0]} name="تعداد" />
       </BarChart>
     </div>
   );

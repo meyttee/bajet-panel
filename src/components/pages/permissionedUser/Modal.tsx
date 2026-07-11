@@ -120,7 +120,7 @@ const ModalContent = ({
               variant="subtle"
               size="lg"
               aria-selected={role === "admin"}
-              className="aria-selected:!bg-[#1E40AF] aria-selected:!text-white"
+              className="aria-selected:!bg-[#262261] aria-selected:!text-white"
               onClick={() => setRole("admin")}
             >
               ادمین
@@ -133,7 +133,7 @@ const ModalContent = ({
                   size="lg"
                   aria-selected={role === "user"}
                   onClick={() => setRole("user")}
-                  className="aria-selected:!bg-[#1E40AF] aria-selected:!text-white"
+                  className="aria-selected:!bg-[#262261] aria-selected:!text-white"
                 >
                   کاربر
                 </Button>

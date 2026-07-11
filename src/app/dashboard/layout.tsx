@@ -20,7 +20,7 @@ export default function DashboardLayout({
         <AIBSidebar sidebarData={sidebarData} />
       </SidebarProvider>
       <main
-        className={`m-6 h-[calc(100vh-48px)] w-full overflow-auto rounded-xl border border-[#E5E7EB] bg-white shadow-md`}
+        className={`m-6 h-[calc(100vh-48px)] w-full overflow-auto rounded-xl bg-white ${isDashboardRoute ? "shadow-none" : "border border-[#E5E7EB] shadow-md"}`}
       >
         {children}
       </main>

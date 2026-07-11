@@ -56,8 +56,13 @@ const Login = () => {
           className="flex w-1/2 flex-col items-center gap-9"
           onSubmit={handleSubmit(submitHandler)}
         >
-          <Image alt="logo" src="/logo.svg" width={125} height={160} />
-          <h1 className="mx-auto text-base font-medium">ورود</h1>
+          <div className="flex flex-col items-center gap-2.5">
+            <Image alt="logo" src="/logo.svg" width={117} height={160} />
+            <h2 className="text-xl leading-8 font-semibold text-[#131131]">
+              انتخابی از جنس تحول دیجیتال
+            </h2>
+          </div>
+          <h1 className="mx-auto text-base font-medium text-[#030712]">ورود</h1>
           <div className="flex w-[424px] flex-col gap-5 px-5">
             <RhfInput control={control} name="username" label="نام کاربری" />
             <RhfInput
@@ -76,13 +81,6 @@ const Login = () => {
               ورود
             </Button>
           </div>
-          <p className="text-xs leading-4">
-            ثبت نام شما به منزله پذیرش{" "}
-            <Link href="#" prefetch className="text-[#1E40AF]">
-              قوانین و شرایط{" "}
-            </Link>{" "}
-            استفاده از خدمات chatbank است.
-          </p>
         </form>
       </Form>
 

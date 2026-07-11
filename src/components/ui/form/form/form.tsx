@@ -97,7 +97,7 @@ function FormLabel({
       data-slot="form-label"
       data-error={!!error}
       className={cn(
-        "text-sm font-normal text-zinc-600 data-[error=true]:text-red-600",
+        "text-sm font-normal text-[#4B5563] data-[error=true]:text-red-600",
         className,
       )}
       htmlFor={formItemId}

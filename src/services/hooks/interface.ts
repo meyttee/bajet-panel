@@ -124,26 +124,16 @@ interface IGetPermissionedUsers {
 
 interface ILineChart {
   success: boolean;
-  chart: {
-    type: string;
-    xKey: string;
-    series: [
-      {
-        key: string;
-        name: string;
-        color: string;
-      },
-    ];
-    data: {
-      keyword: string;
-      count: number;
-    }[];
-    title: string;
-  };
+  line: {
+    name: string;
+    total: number;
+    month: { count: number; month: string }[];
+  }[];
   summary: {
     total_messages: number;
     total_words: number;
     unique_words: number;
+    top_keywords: string[];
   };
 }
 

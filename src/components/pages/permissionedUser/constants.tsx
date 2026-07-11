@@ -56,14 +56,32 @@ const TABLE_COLS: ColumnDef<IPermissionedUser>[] = [
   },
 ];
 
-const schema = z.object({
-  personnel_code: z.string().trim().nonoptional("کد پرسنلی اجباریست"),
-  phone_number: z
-    .string()
-    .regex(/^[09][0-9]{10}$/, "فرمت صحیح شماره موبایل: 09xxxxx1234"),
-  password: z.string().min(6, "کلمه عبور باید حداقل ۶ کاراکتر باشد"),
-  confirm_password: z.string().min(6, "کلمه عبور باید حداقل ۶ کاراکتر باشد"),
-});
+const schema = z
+  .object({
+    personnel_code: z.string().trim().nonoptional("کد پرسنلی اجباریست"),
+    phone_number: z
+      .string()
+      .regex(/^[09][0-9]{10}$/, "فرمت صحیح شماره موبایل: 09xxxxx1234"),
+    password: z
+      .string()
+      .min(6, "کلمه عبور باید حداقل ۶ کاراکتر باشد")
+      .regex(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$_#!*%&() .]{6,}$/,
+        "گذرواژه باید حداقل ۶ کاراکتر و حاوی حروف بزرگ و کوچک لاتین و اعداد باشد.",
+      ),
+    confirm_password: z
+      .string()
+      .min(6, "کلمه عبور باید حداقل ۶ کاراکتر باشد")
+      .regex(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$_#!*%&() .]{6,}$/,
+        "گذرواژه باید حداقل ۶ کاراکتر و حاوی حروف بزرگ و کوچک لاتین و اعداد باشد.",
+      ),
+  })
+  .refine((vals) => vals.password === vals.confirm_password, {
+    error: "رمز وارد شده با تکرار ان مطابقط ندارد.",
+
+    path: ["confirm_password"],
+  });
 type IForm = z.infer<typeof schema>;
 
 export { TABLE_COLS, type IForm, schema };

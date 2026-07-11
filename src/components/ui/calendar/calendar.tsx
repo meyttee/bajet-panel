@@ -114,7 +114,7 @@ function Calendar({
         range_middle: cn("rounded-none", defaultClassNames.range_middle),
         range_end: cn("rounded-l-md bg-accent", defaultClassNames.range_end),
         today: cn(
-          "bg-transparent outline outline-[#1E40AF] text-accent-foreground rounded-md data-[selected=true]:rounded-none",
+          "bg-transparent outline outline-[#262261] text-accent-foreground rounded-md data-[selected=true]:rounded-none",
         ),
         outside: cn(
           "text-[#E5E7EB] aria-selected:text-muted-foreground",
@@ -208,7 +208,7 @@ function CalendarDayButton({
         modifiers.selected === modifiers.range_end
       }
       className={cn(
-        "flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal data-[range-end=true]:rounded-r-none data-[range-end=true]:bg-[#1E40AF] data-[range-end=true]:text-white data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-[#1E40AF]/12 data-[range-middle=true]:text-zinc-900 data-[range-start=true]:rounded-l-none data-[range-start=true]:bg-[#1E40AF] data-[range-start=true]:text-white data-[selected-single=true]:bg-[#1E40AF] data-[selected-single=true]:text-white data-[single-range=true]:rounded-sm [&>span]:text-xs [&>span]:opacity-70",
+        "flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal data-[range-end=true]:rounded-r-none data-[range-end=true]:bg-[#262261] data-[range-end=true]:text-white data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-[#262261]/12 data-[range-middle=true]:text-zinc-900 data-[range-start=true]:rounded-l-none data-[range-start=true]:bg-[#262261] data-[range-start=true]:text-white data-[selected-single=true]:bg-[#262261] data-[selected-single=true]:text-white data-[single-range=true]:rounded-sm [&>span]:text-xs [&>span]:opacity-70",
         defaultClassNames.day,
         className,
       )}

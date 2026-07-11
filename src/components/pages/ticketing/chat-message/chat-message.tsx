@@ -28,7 +28,7 @@ const ChatMessage: FC<{ messages: IMessage[]; defaultMessage?: string }> = ({
             {
               "w-fit rounded-br-[8px] border border-[#F3F4F6] bg-[#F8FAFC] text-[#52525B]":
                 message.role === "user",
-              "w-full bg-[#1E40AF] text-white": message.role !== "user",
+              "w-full bg-[#262261] text-white": message.role !== "user",
             },
           )}
           key={message.id}

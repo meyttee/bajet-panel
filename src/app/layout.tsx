@@ -1,8 +1,9 @@
-import "./globals.css";
 import { ReactNode } from "react";
 import { dehydrate } from "@tanstack/react-query";
 
 import { createQueryClient, QueryProvider } from "@/provider";
+
+import "./globals.css";
 
 export default async function RootLayout({
   children,
