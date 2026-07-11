@@ -61,6 +61,7 @@ const BarCharts = () => {
           marginLeft: -10,
         }}
         responsive
+        // @ts-ignore
         data={data?.data.chart.data.slice(0, 4)}
       >
         <CartesianGrid strokeDasharray="3 3" />

@@ -29,11 +29,14 @@ function convertToChartData(apiResponse?: ILineChart) {
 
   apiResponse?.line.slice(0, 4).forEach((keyword) => {
     keyword.month.forEach(({ month, count }) => {
+      // @ts-ignore
       if (!monthMap[month]) monthMap[month] = { month };
+      // @ts-ignore
       monthMap[month][keyword.name] = count;
     });
   });
 
+  // @ts-ignore
   return Object.values(monthMap).sort((a, b) => a.month.localeCompare(b.month));
 }
 
