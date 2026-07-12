@@ -17,3 +17,4 @@ export * from "./cards";
 export * from "./table";
 export * from "./pagination";
 export * from "./faceted-filter";
+export * from "./accordion";

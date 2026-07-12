@@ -18,14 +18,70 @@ interface IGetReportsResponsePayload {
 }
 
 interface IRetrievedDoc {
-  doc_id: string;
-  chunk_id: string;
-  chunk_text: string;
   score: number;
+  chunk_id: string;
   metadata: {
-    source: string;
-    page: number;
+    page: string;
+    part: string;
+    title: string;
+    article: string;
+    chapter: string;
+    chunk_id: string;
+    doc_name: string;
+    end_page: number;
+    doc_title: string;
+    file_path: string;
+    chunk_type: string;
+    part_title: string;
+    start_page: number;
+    page_number: number;
+    source_file: string;
+    chunk_number: number;
+    processed_at: string;
+    section_info: {
+      part: string;
+      article: string;
+      chapter: string;
+      section: null;
+      hierarchy_path: string;
+    };
+    article_title: string;
+    chapter_title: string;
+    display_title: string;
+    document_name: string;
+    content_length: number;
+    hierarchy_path: string;
+    context_summary: {
+      page: number;
+      doc_title: string;
+      hierarchy: {
+        part: string;
+        article: string;
+        chapter: string;
+        section: null;
+        part_title: string;
+        article_title: string;
+        chapter_title: string;
+        hierarchy_path: string;
+      };
+    };
+    document_context: {
+      page: number;
+      doc_title: string;
+      hierarchy: {
+        part: string;
+        article: string;
+        chapter: string;
+        section: null;
+        part_title: string;
+        article_title: string;
+        chapter_title: string;
+        hierarchy_path: string;
+      };
+    };
   };
+  chunk_text: string;
+  document_title: string;
   reference_number: number;
 }
 
@@ -75,6 +131,7 @@ interface IQuestion {
   admin_feedback: string;
   status: boolean;
   feedback: "like" | "dislike";
+  retrieved_docs: IRetrievedDoc[];
 }
 
 interface IGetQuestionsResponsePayload {
@@ -178,4 +235,5 @@ export type {
   IGetPermissionedUsers,
   ILineChart,
   IBarChart,
+  IRetrievedDoc,
 };

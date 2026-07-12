@@ -2,11 +2,7 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { ChatHeader } from "../ticketing/chat-header";
-import {
-  useGetQuestionById,
-  useGetQuestions,
-  usePutFeedback,
-} from "@/services";
+import { useGetQuestionById, usePutFeedback } from "@/services";
 import { ChatMessage } from "../ticketing/chat-message";
 import { Button, Loading } from "@/components/ui";
 import { Controller, useForm } from "react-hook-form";
@@ -72,7 +68,7 @@ const Question = () => {
             feedback: null,
             id: String(Number(questionData?.id) + 1),
             metadata: { processing_time: 0, tokens: 0 },
-            retrieved_docs: [],
+            retrieved_docs: questionData?.retrieved_docs || [],
             role: "assistant",
           },
         ]}
