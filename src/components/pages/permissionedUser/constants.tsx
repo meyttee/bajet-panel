@@ -78,7 +78,7 @@ const schema = z
       ),
   })
   .refine((vals) => vals.password === vals.confirm_password, {
-    error: "رمز وارد شده با تکرار ان مطابقط ندارد.",
+    error: "رمز وارد شده با تکرار ان مطابقت ندارد.",
 
     path: ["confirm_password"],
   });

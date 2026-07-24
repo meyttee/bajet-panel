@@ -57,7 +57,7 @@ const ChatMessage: FC<{ messages: IMessage[]; defaultMessage?: string }> = ({
                   "text-[#D1D5DB]": message.role !== "user",
                 })}
               >
-                {moment(message.created_at).format("HH:MM")}
+                {moment(message.created_at).format("HH:mm")}
               </span>
             </div>
           </div>

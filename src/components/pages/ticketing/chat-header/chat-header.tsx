@@ -31,7 +31,7 @@ const ChatHeader: FC<ChatHeaderProps> = ({
           <div className="flex items-center gap-2">
             <p className="text-sm leading-7 font-normal text-gray-400">زمان:</p>
             <p className="text-sm leading-7 font-normal">
-              {moment(created_at).format("HH:MM jYYYY/jMM/jDD")}
+              {moment(created_at).format("HH:mm jYYYY/jMM/jDD")}
             </p>
           </div>
         )}

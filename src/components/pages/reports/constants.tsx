@@ -49,7 +49,7 @@ const TABLE_COLS: ColumnDef<IReport>[] = [
     header: "زمان",
     id: "created_at__date",
     accessorFn: ({ created_at }) =>
-      moment(created_at).format("HH:MM jYYYY/jMM/jDD"),
+      moment(created_at).format("HH:mm jYYYY/jMM/jDD"),
     enableColumnFilter: true,
     meta: {
       variant: "date",
