@@ -19,14 +19,14 @@ const ChatHeader: FC<ChatHeaderProps> = ({
   return (
     <div className="flex w-full items-center justify-between border-b border-[#E5E7EB] bg-white px-5 py-3">
       <div className="flex gap-5">
-        {id && (
+        {/* {id && (
           <div className="flex items-center gap-2">
             <p className="text-sm leading-7 font-normal text-gray-400">
               شناسه:
             </p>
             <p className="text-sm leading-7 font-normal">{id}</p>
           </div>
-        )}
+        )} */}
         {created_at && (
           <div className="flex items-center gap-2">
             <p className="text-sm leading-7 font-normal text-gray-400">زمان:</p>

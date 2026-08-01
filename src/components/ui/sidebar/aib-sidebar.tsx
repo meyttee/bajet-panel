@@ -41,7 +41,7 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
     >
       <SidebarHeader className="flex items-center justify-between overflow-hidden rounded-tl-xl bg-[#262261] px-3 py-4 text-slate-200">
         <Image
-          src="/header-logo.png"
+          src="/header-logo.svg"
           alt="header-logo"
           width={224}
           height={62}
