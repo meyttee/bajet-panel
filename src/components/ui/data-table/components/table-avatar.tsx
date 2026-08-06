@@ -18,7 +18,7 @@ function TableAvatar({ src, alt }: TableAvatarProps) {
       width={32}
       height={32}
       onError={() => setImgSrc("/images/default-avatar.svg")}
-      className="rounded-full border-1 border-[#262261] object-cover"
+      className="rounded-full border-1 border-[#2F6FB5] object-cover"
     />
   );
 }

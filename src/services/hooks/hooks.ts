@@ -21,7 +21,7 @@ const useGetReports = () => {
   return useQuery({
     queryFn: async () => {
       const res = await api.get<IGetReportsResponsePayload>(
-        "/cyra_reg/v1/report",
+        "/bajet/v1/report",
         {
           params,
         },
@@ -37,7 +37,7 @@ const useGetReportById = (id: string) =>
   useQuery({
     queryFn: async () => {
       const res = await api.get<IGetReportByIdResponsePayload>(
-        `/cyra_reg/v1/${id}`,
+        `/bajet/v1/${id}`,
       );
       return res.data;
     },
@@ -49,7 +49,7 @@ const useGetManageSessions = () => {
   const params = useQueryParams();
   return useQuery({
     queryFn: async () => {
-      const res = await api.get<IGetSessionsResponsePayload>("/cyra_reg/v1/", {
+      const res = await api.get<IGetSessionsResponsePayload>("/bajet/v1/", {
         params,
       });
       return res.data;
@@ -64,7 +64,7 @@ const useGetQuestions = () => {
   return useQuery({
     queryFn: async () => {
       const res = await api.get<IGetQuestionsResponsePayload>(
-        "/cyra_reg/v1/questions",
+        "/bajet/v1/questions",
         { params },
       );
       return res.data;
@@ -77,7 +77,7 @@ const useGetQuestions = () => {
 const useGetQuestionById = (id: string) => {
   return useQuery({
     queryFn: async () => {
-      const res = await api.get<IQuestion>(`/cyra_reg/v1/questions/${id}/`);
+      const res = await api.get<IQuestion>(`/bajet/v1/questions/${id}/`);
       return res.data;
     },
     queryKey: ["useGetQuestionById", id],
@@ -90,12 +90,9 @@ const useGetUsers = () => {
 
   return useQuery({
     queryFn: async () => {
-      const res = await api.get<IGetUsersResponsePayload>(
-        "/cyra_reg/v1/users",
-        {
-          params,
-        },
-      );
+      const res = await api.get<IGetUsersResponsePayload>("/bajet/v1/users", {
+        params,
+      });
       return res.data;
     },
     queryKey: ["useGetUsers", params],
@@ -172,7 +169,7 @@ const useGetDashboardCardsData = (filter: string) =>
     queryKey: ["useGetDashboardCardsData", filter],
     placeholderData: keepPreviousData,
     queryFn: async () =>
-      await api.get(`/cyra_reg/v1/dashboard/card?filter=${filter}`),
+      await api.get(`/bajet/v1/dashboard/card?filter=${filter}`),
   });
 
 const useGetMessageCounts = (filter: string) =>
@@ -181,7 +178,7 @@ const useGetMessageCounts = (filter: string) =>
     placeholderData: keepPreviousData,
     queryFn: async () =>
       await api.get<{ name: string; y: string }[]>(
-        `/cyra_reg/v1/dashboard/messages?filter=${filter}`,
+        `/bajet/v1/dashboard/messages?filter=${filter}`,
       ),
   });
 
@@ -191,7 +188,7 @@ const useGetAreaChartData = (filter: string) =>
     placeholderData: keepPreviousData,
     queryFn: async () =>
       await api.get<ILineChart>(
-        `/cyra_reg/v1/dashboard/word-cloud?chart_type=line&filter=${filter}&role=all`,
+        `/bajet/v1/dashboard/word-cloud?chart_type=line&filter=${filter}&role=all`,
       ),
   });
 
@@ -201,7 +198,7 @@ const useGetBarChartData = (filter: string) =>
     placeholderData: keepPreviousData,
     queryFn: async () =>
       await api.get<ILineChart>(
-        `/cyra_reg/v1/dashboard/word-cloud?chart_type=bar&&filter=${filter}&role=all`,
+        `/bajet/v1/dashboard/word-cloud?chart_type=bar&&filter=${filter}&role=all`,
       ),
   });
 
@@ -211,7 +208,7 @@ const useGetFeedbacks = (filter: string) =>
     placeholderData: keepPreviousData,
     queryFn: async () =>
       await api.get<{ name: string; y: string }[]>(
-        `/cyra_reg/v1/dashboard/feedback?filter=${filter}`,
+        `/bajet/v1/dashboard/feedback?filter=${filter}`,
       ),
   });
 
@@ -224,7 +221,7 @@ const usePutFeedback = () =>
     }: {
       data: { admin_feedback: string };
       id?: number | string;
-    }) => await api.put(`/cyra_reg/v1/questions/${id}/feedback`, data),
+    }) => await api.put(`/bajet/v1/questions/${id}/feedback`, data),
   });
 
 export {

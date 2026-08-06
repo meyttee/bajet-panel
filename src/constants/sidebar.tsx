@@ -28,11 +28,11 @@ export const sidebarData: SidebarData = [
     url: "/dashboard/questions",
     icon: <QuestionsIcon />,
   },
-  {
-    title: "مدیریت کاربران",
-    url: "/dashboard/users",
-    icon: <UsersIcon />,
-  },
+  // {
+  //   title: "مدیریت کاربران",
+  //   url: "/dashboard/users",
+  //   icon: <UsersIcon />,
+  // },
   {
     title: "مدیریت اعضا",
     url: "/dashboard/permissioned-users",

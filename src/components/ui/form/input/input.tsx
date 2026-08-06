@@ -43,7 +43,7 @@ export const AIBInput = ({
         type={inputType}
         data-slot="input"
         className={cn(
-          "outline outline-[#6B7280] selection:bg-[#262261] file:text-foreground placeholder:text-gray-400 aria-invalid:placeholder:text-red-600",
+          "outline outline-[#6B7280] selection:bg-[#2F6FB5] file:text-foreground placeholder:text-gray-400 aria-invalid:placeholder:text-red-600",
           "flex w-full min-w-0 rounded leading-5 selection:text-white placeholder:text-xs",
           "border-none bg-transparent px-2 text-sm transition-[color,box-shadow] file:inline-flex",
           "text-zinc-600 file:h-7 file:bg-transparent file:font-medium file:outline-0 disabled:pointer-events-none",

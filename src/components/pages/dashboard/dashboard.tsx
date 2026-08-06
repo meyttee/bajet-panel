@@ -33,8 +33,8 @@ const Dashboard = () => {
         <div className="flex w-full flex-col gap-4 rounded-[10px] border border-[#E5E7EB] p-5 shadow-[0px_2px_6px_0px_#00000014]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="rounded-sm bg-[#312E810D] p-1.5">
-                <WalletIcon className="size-5 text-[#262261]" />
+              <div className="rounded-sm bg-[#E1E3B5] p-1.5">
+                <WalletIcon className="size-5 text-[#2F6FB5]" />
               </div>
               <div className="flex flex-col">
                 <span className="text-sm leading-6 font-medium text-[#3F3F46]">
@@ -72,8 +72,8 @@ const Dashboard = () => {
         <div className="flex w-full flex-col gap-4 rounded-[10px] border border-[#E5E7EB] p-5 shadow-[0px_2px_6px_0px_#00000014]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="rounded-sm bg-[#312E810D] p-1.5">
-                <WalletIcon className="size-5 text-[#262261]" />
+              <div className="rounded-sm bg-[#E1E3B5] p-1.5">
+                <WalletIcon className="size-5 text-[#2F6FB5]" />
               </div>
               <div className="flex flex-col">
                 <span className="text-sm leading-6 font-medium text-[#3F3F46]">
@@ -111,8 +111,8 @@ const Dashboard = () => {
         <div className="flex w-full flex-col gap-4 rounded-[10px] border border-[#E5E7EB] p-5 shadow-[0px_2px_6px_0px_#00000014]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="rounded-sm bg-[#312E810D] p-1.5">
-                <WalletIcon className="size-5 text-[#262261]" />
+              <div className="rounded-sm bg-[#E1E3B5] p-1.5">
+                <WalletIcon className="size-5 text-[#2F6FB5]" />
               </div>
               <div className="flex flex-col">
                 <span className="text-sm leading-6 font-medium text-[#3F3F46]">
@@ -155,8 +155,8 @@ const Dashboard = () => {
         <div className="flex w-full flex-col gap-4 rounded-[10px] border border-[#E5E7EB] p-5 shadow-[0px_2px_6px_0px_#00000014]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="rounded-sm bg-[#312E810D] p-1.5">
-                <WalletIcon className="size-5 text-[#262261]" />
+              <div className="rounded-sm bg-[#E1E3B5] p-1.5">
+                <WalletIcon className="size-5 text-[#2F6FB5]" />
               </div>
               <div className="flex flex-col">
                 <span className="text-sm leading-6 font-medium text-[#3F3F46]">

@@ -40,7 +40,7 @@ function convertToChartData(apiResponse?: ILineChart) {
   return Object.values(monthMap).sort((a, b) => a.month.localeCompare(b.month));
 }
 
-const colors = ["#663399", "#1D70B8", "#E28743", "#A8446E"];
+const colors = ["#8FB7E2", "#CAD300", "#2F6FB5", "#979E00"];
 
 export const SimpleAreaChart = () => {
   const [filter, setFilter] = useState("at_first");

@@ -36,7 +36,7 @@ const ChatMessage: FC<{ messages: IMessage[]; defaultMessage?: string }> = ({
               {
                 "w-fit rounded-br-[8px] border border-[#F3F4F6] bg-[#F8FAFC] text-[#52525B]":
                   message.role === "user",
-                "w-full bg-[#262261] text-white": message.role !== "user",
+                "w-full bg-[#2F6FB5] text-white": message.role !== "user",
               },
             )}
           >
@@ -75,12 +75,11 @@ const ChatMessage: FC<{ messages: IMessage[]; defaultMessage?: string }> = ({
       ))}
       {defaultMessage && (
         <>
-          <div className="mt-6 border-t border-[#D1D5DB]" />
-          <div className="mt-6 flex w-full flex-col justify-start rounded-[20px] rounded-br-[8px] border border-[#F3F4F6] bg-[#BFDBFE] p-4 text-right text-[#52525B]">
-            <p className="text-base font-medium text-[#52525B]">
+          <div className="mt-6 flex w-full flex-col justify-start rounded-[20px] rounded-br-[8px] border border-[#CAD300] bg-[#D8DB8F] p-4 text-right text-[#4B5563]">
+            <p className="text-base font-medium text-[#4B5563]">
               بازخورد کاربر
             </p>
-            <p className="text-sm leading-relaxed font-normal break-words whitespace-pre-wrap">
+            <p className="text-sm leading-relaxed font-normal break-words whitespace-pre-wrap text-[#4B5563]">
               {defaultMessage}
             </p>
           </div>

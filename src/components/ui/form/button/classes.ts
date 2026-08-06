@@ -7,9 +7,9 @@ const buttonVariants = cva(
       variant: {
         default: `rounded-[20px] text-primary-foreground shadow-xs hover:bg-primary/90`,
         destructive: `rounded-[6px] !border !border-transparent !bg-red-600 px-3 py-2 !text-white hover:!border-red-600 hover:!bg-red-400 hover:!text-white disabled:!border-[#DC2626]/20 disabled:!bg-[#DC2626]/20`,
-        outline: `rounded-[6px] border border-transparent bg-[#262261] active:ring disabled:border-[#262261]/32 disabled:bg-[#262261]/12 disabled:text-[#262261]/32`,
+        outline: `rounded-[6px] border border-transparent bg-[#2F6FB5] active:ring disabled:border-[#2F6FB5]/32 disabled:bg-[#2F6FB5]/12 disabled:text-[#2F6FB5]/32`,
         ghost: `overflow-hidden rounded-[14px] p-2`,
-        link: `!border-transparent !px-3 !py-1.5 text-[#262261] text-primary underline-offset-4 hover:!bg-[#E5E7EB] hover:text-[#262261] active:!border-gray-400 active:!ring-0 disabled:text-[#262261]/32`,
+        link: `!border-transparent !px-3 !py-1.5 text-[#2F6FB5] text-primary underline-offset-4 hover:!bg-[#E5E7EB] hover:text-[#2F6FB5] active:!border-gray-400 active:!ring-0 disabled:text-[#2F6FB5]/32`,
         subtle: `!hover:bg-zinc-50 !hover:text-zinc-700 !hover:border-zinc-600 !border-gray-400 !text-zinc-700`,
       },
       size: {
@@ -20,8 +20,8 @@ const buttonVariants = cva(
         full: "!w-full px-4 py-2",
       },
       isFilled: {
-        true: `border border-transparent bg-[#262261] text-white hover:border-[#262261] hover:bg-white hover:text-[#262261] active:border-white active:bg-[#262261] active:text-white disabled:border-[#262261]/12 disabled:bg-[#262261]/12 disabled:text-[#262261]/25`,
-        false: `border border-[#262261] bg-transparent text-[#262261] hover:bg-[#262261] hover:text-white active:bg-[#262261] active:ring`,
+        true: `border border-transparent bg-[#2F6FB5] text-white hover:border-[#2F6FB5] hover:bg-white hover:text-[#2F6FB5] active:border-white active:bg-[#2F6FB5] active:text-white disabled:border-[#2F6FB5]/12 disabled:bg-[#2F6FB5]/12 disabled:text-[#2F6FB5]/25`,
+        false: `border border-[#2F6FB5] bg-transparent text-[#2F6FB5] hover:bg-[#2F6FB5] hover:text-white active:bg-[#2F6FB5] active:ring`,
       },
     },
     defaultVariants: {
@@ -33,17 +33,17 @@ const buttonVariants = cva(
       {
         variant: "outline",
         isFilled: false,
-        className: `hover:border-[#262261] hover:bg-[#E5E7EB]/40 hover:text-[#262261] active:bg-[#262261]/25 active:ring-0 disabled:border-[#262261]/32 disabled:bg-white disabled:text-[#262261]/32`,
+        className: `hover:border-[#2F6FB5] hover:bg-[#E5E7EB]/40 hover:text-[#2F6FB5] active:bg-[#2F6FB5]/25 active:ring-0 disabled:border-[#2F6FB5]/32 disabled:bg-white disabled:text-[#2F6FB5]/32`,
       },
       {
         variant: "outline",
         isFilled: true,
-        className: "dieabled:bg-[#262261]/12",
+        className: "dieabled:bg-[#2F6FB5]/12",
       },
       {
         variant: "ghost",
         isFilled: false,
-        className: `acitve:ring-0 border border-transparent bg-transparent !p-2 text-zinc-700 hover:bg-gray-100 hover:text-[#262261] active:border-[#262261] active:bg-zinc-200 active:text-[#262261] aria-selected:bg-[#262261] aria-selected:text-white`,
+        className: `acitve:ring-0 border border-transparent bg-transparent !p-2 text-zinc-700 hover:bg-gray-100 hover:text-[#2F6FB5] active:border-[#2F6FB5] active:bg-zinc-200 active:text-[#2F6FB5] aria-selected:bg-[#2F6FB5] aria-selected:text-white`,
       },
       {
         variant: "subtle",

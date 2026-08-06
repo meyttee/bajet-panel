@@ -69,7 +69,7 @@ const SimpleBarChart = () => {
         <XAxis dataKey="name" />
         <YAxis dataKey="y" dx={-30} />
         <Tooltip />
-        <Bar dataKey="y" fill="#7873CE" radius={[4, 4, 0, 0]} name="تعداد" />
+        <Bar dataKey="y" fill="#8FB7E2" radius={[4, 4, 0, 0]} name="تعداد" />
       </BarChart>
     </div>
   );

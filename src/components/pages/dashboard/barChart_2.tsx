@@ -73,12 +73,12 @@ const BarCharts = () => {
           radius={[10, 10, 0, 0]}
           name="تعداد"
           shape={(props: BarShapeProps) => {
-            const colors = ["#1D70B8", "#663399", "#A8446E", "#E28743"];
+            const colors = ["#8FB7E2", "#CAD300", "#2F6FB5", "#979E00"];
             props.index;
             return (
               <Rectangle
                 {...props}
-                fill={`${colors[props.index]}4D`}
+                fill={`${colors[props.index]}`}
                 stroke={colors[props.index]}
               />
             );

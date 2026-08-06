@@ -39,7 +39,7 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
       variant="sidebar"
       className="fixed z-10 h-[100vh]"
     >
-      <SidebarHeader className="flex items-center justify-between overflow-hidden rounded-tl-xl bg-[#262261] px-3 py-4 text-slate-200">
+      <SidebarHeader className="flex items-center justify-between overflow-hidden rounded-tl-xl bg-[#2F6FB5] px-3 py-4 text-slate-200">
         <Image
           src="/header-logo.svg"
           alt="header-logo"
@@ -50,7 +50,7 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
         {isMobile && <X onClick={toggleSidebar} />}
       </SidebarHeader>
       <SidebarContent
-        className={clsx("relative rounded-bl-md bg-[#262261] pt-4")}
+        className={clsx("relative rounded-bl-md bg-[#2F6FB5] pt-4")}
       >
         <div
           className={clsx(
@@ -71,7 +71,7 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
                     className={clsx(
                       "flex h-11 w-full cursor-pointer items-center justify-center",
                       {
-                        "rounded-full bg-white text-[#262261]": isActive,
+                        "rounded-full bg-white text-[#2F6FB5]": isActive,
                         "text-slate-200": !isActive,
                       },
                     )}
@@ -91,9 +91,9 @@ export const AIBSidebar = ({ sidebarData, ...props }: AibSidebarProps) => {
                 <SidebarGroupLabel
                   asChild
                   className={clsx("rounded-2xl text-sm hover:bg-white/10", {
-                    "h-14 border-b-1 border-[#262261]/32": isMobile,
+                    "h-14 border-b-1 border-[#2F6FB5]/32": isMobile,
                     "h-11": !isMobile,
-                    "rounded-2xl bg-white text-[#262261]": isActive,
+                    "rounded-2xl bg-white text-[#2F6FB5]": isActive,
                     "text-slate-200": !isActive,
                   })}
                 >

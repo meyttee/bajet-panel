@@ -12,7 +12,7 @@ import { Legend, Pie, PieChart, Tooltip, TooltipIndex } from "recharts";
 
 // #region Sample data
 
-const COLORS = ["#663399", "#A8446E", "#E28743"];
+const COLORS = ["#8FB7E2", "#CAD300", "#2F6FB5"];
 const NAMES = {
   Like: "پسندیدم",
   Dislike: "نپسندیدم",
@@ -89,7 +89,7 @@ export default function TwoLevelPieChart() {
             data={data?.data.map((item, i) => ({
               ...item,
               name: NAMES[item.name as keyof typeof NAMES],
-              fill: `${COLORS[i]}4D`,
+              fill: `${COLORS[i]}`,
               stroke: COLORS[i],
             }))}
             dataKey="y"
