@@ -39,9 +39,9 @@ export const sidebarData: SidebarData = [
     url: "/dashboard/permissioned-users",
     icon: <MembersIcon />,
   },
-  // {
-  //   title: "مدیریت منابع",
-  //   url: "/dashboard/resource-manager",
-  //   icon: <DatabaseIcon height={20} width={20} />,
-  // },
+  {
+    title: "مدیریت منابع",
+    url: "/dashboard/resource-manager",
+    icon: <DatabaseIcon height={20} width={20} />,
+  },
 ];

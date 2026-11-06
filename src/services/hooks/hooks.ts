@@ -13,6 +13,8 @@ import {
   ILogiPayload,
   IPermissionedUser,
   IQuestion,
+  IGetResources,
+  IGetResourcesRequestPayload
 } from "./interface";
 import { api } from "../interceptor";
 
@@ -211,18 +213,33 @@ const useGetFeedbacks = (filter: string) =>
         `/bajet/v1/dashboard/feedback?filter=${filter}`,
       ),
   });
-
-const usePutFeedback = () =>
-  useMutation({
-    mutationKey: ["usePutFeedback"],
-    mutationFn: async ({
-      data,
-      id,
-    }: {
-      data: { admin_feedback: string };
-      id?: number | string;
-    }) => await api.put(`/bajet/v1/questions/${id}/feedback`, data),
+  
+  const usePutFeedback = () =>
+    useMutation({
+      mutationKey: ["usePutFeedback"],
+      mutationFn: async ({
+        data,
+        id,
+      }: {
+        data: { admin_feedback: string };
+        id?: number | string;
+      }) => await api.put(`/bajet/v1/questions/${id}/feedback`, data),
+    });
+    
+   const useGetResources = () => {
+  const params = useQueryParams();
+  return useQuery({
+    queryFn: async () => {
+      const res = await api.get<IGetResourcesRequestPayload>("/bajet/v1/resource/", {
+        params,
+      });
+      return res.data;
+    },
+    queryKey: ["useGetResources", params],
+    placeholderData: keepPreviousData,
   });
+};
+
 
 export {
   useGetReports,
@@ -244,4 +261,5 @@ export {
   useGetQuestionById,
   useGetBarChartData,
   useDeletePermissionedUser,
+  useGetResources
 };

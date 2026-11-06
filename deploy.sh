@@ -1,24 +1,25 @@
 #!/bin/bash
 
-set e
+set -e
 
 echo "Stopping old container..."
-docker stop bajet-panel 2>/dev/null || true
+docker stop bajet_panel 2>/dev/null || true
 
 echo "Removing old container..."
-docker rm bajet-panel 2>/dev/null || true
+docker rm bajet_panel 2>/dev/null || true
 
 echo "Removing old image..."
-docker rmi cyra_front 2>/dev/null || true
+docker rmi bajet_panel 2>/dev/null || true
 
 echo "Building new image..."
-docker build -t cyra_front .
+docker build -t bajet_panel .
 
 echo "Running new container..."
 docker run -d \
-        --name bajet-panel \
-        --restart unless-stopped \
-        -p 3000:3000 \
-        cyra_front
-        
+  --name bajet_panel \
+  --restart unless-stopped \
+  -p 3000:3000 \
+  bajet_panel
+
 echo "Deploy completed successfully."
+

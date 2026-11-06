@@ -219,6 +219,31 @@ interface IBarChart {
   };
 }
 
+
+
+interface IGetResources{
+   "id": string,
+      "product": {
+        "id":string,
+        "name": string
+      },
+      "created_at_ts": 1785148560,
+      "updated_at_ts": 1785148560,
+      "created_at": string,
+      "updated_at": string,
+      "question": string,
+      "answer": string
+}
+
+
+interface IGetResourcesRequestPayload {
+  count: number;
+  all_page: number;
+  page: string | null;
+  page_size: number;
+  results: IGetResources[];
+}
+
 export type {
   ILogiPayload,
   IReport,
@@ -236,4 +261,6 @@ export type {
   ILineChart,
   IBarChart,
   IRetrievedDoc,
+  IGetResources,
+  IGetResourcesRequestPayload
 };
