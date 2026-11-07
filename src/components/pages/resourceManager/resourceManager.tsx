@@ -15,10 +15,13 @@ import { useGetResources } from "@/services";
 import { useState } from "react";
 // import ModalContent from "./Modal";
 import axios from "axios";
+import { ArrowUpCircle } from "lucide-react";
+import AddModal from "./addModal";
 
 const ResourceManager = () => {
-  const [userId, setUserId] = useState<number>();
+  const [userId, setUserId] = useState<string>();
   const [isOpen, setIsOpen] = useState(false);
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
   const { data, isLoading, refetch } = useGetResources();
   // const { mutate, isPending } = useDeletePermissionedUser();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState<number>();
@@ -26,6 +29,9 @@ const ResourceManager = () => {
     columns: TABLE_COLS,
     data: data?.results || [],
     pageCount: data?.all_page || 1,
+    // actions: {
+    //   onEdit: (row) => setUserId(row.id),
+    // },
   });
 
   if (isLoading) {
@@ -38,20 +44,31 @@ const ResourceManager = () => {
 
   return (
     <TableContainer>
-      {/* <ModalContent
+      <AddModal
         id={userId}
         onOpenChange={() => {
           setUserId(undefined);
           setIsOpen(false);
         }}
         open={!!userId || isOpen}
-      /> */}
+      />
 
       <TableToolbar
         table={table}
         title="اعضا"
-        // handleAdd={() => setIsOpen(true)}
+        handleAdd={() => setIsOpen(true)}
         totalItems={data?.count || 0}
+        // moreOptions={
+        //   <Button
+        //     aria-label="Reset filters"
+        //     variant="outline"
+        //     size="sm"
+        //     onClick={() => console.log("log")}
+        //   >
+        //     <ArrowUpCircle />
+        //     بارگذاری
+        //   </Button>
+        // }
       />
       <DataTable table={table} />
     </TableContainer>

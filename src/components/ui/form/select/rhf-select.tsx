@@ -10,7 +10,7 @@ import {
 } from "../form";
 import { Select } from "./aib-select";
 
-const RHFSelect = <TFieldValues extends FieldValues>({
+export const RHFSelect = <TFieldValues extends FieldValues>({
   name,
   control,
   label,

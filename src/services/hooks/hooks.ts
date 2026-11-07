@@ -14,7 +14,7 @@ import {
   IPermissionedUser,
   IQuestion,
   IGetResources,
-  IGetResourcesRequestPayload
+  IGetResourcesRequestPayload,
 } from "./interface";
 import { api } from "../interceptor";
 
@@ -213,26 +213,29 @@ const useGetFeedbacks = (filter: string) =>
         `/bajet/v1/dashboard/feedback?filter=${filter}`,
       ),
   });
-  
-  const usePutFeedback = () =>
-    useMutation({
-      mutationKey: ["usePutFeedback"],
-      mutationFn: async ({
-        data,
-        id,
-      }: {
-        data: { admin_feedback: string };
-        id?: number | string;
-      }) => await api.put(`/bajet/v1/questions/${id}/feedback`, data),
-    });
-    
-   const useGetResources = () => {
+
+const usePutFeedback = () =>
+  useMutation({
+    mutationKey: ["usePutFeedback"],
+    mutationFn: async ({
+      data,
+      id,
+    }: {
+      data: { admin_feedback: string };
+      id?: number | string;
+    }) => await api.put(`/bajet/v1/questions/${id}/feedback`, data),
+  });
+
+const useGetResources = () => {
   const params = useQueryParams();
   return useQuery({
     queryFn: async () => {
-      const res = await api.get<IGetResourcesRequestPayload>("/bajet/v1/resource/", {
-        params,
-      });
+      const res = await api.get<IGetResourcesRequestPayload>(
+        "/bajet/v1/resource/",
+        {
+          params,
+        },
+      );
       return res.data;
     },
     queryKey: ["useGetResources", params],
@@ -240,6 +243,49 @@ const useGetFeedbacks = (filter: string) =>
   });
 };
 
+const useGetProducts = () => {
+  const params = useQueryParams();
+  return useQuery({
+    queryFn: async () => {
+      const res = await api.get<{
+        count: number;
+        all_page: number;
+        page: number;
+        page_size: number;
+        results: [
+          {
+            id: string;
+            name: string;
+          },
+          {
+            id: string;
+            name: string;
+          },
+        ];
+      }>("/bajet/v1/product", {
+        params,
+      });
+      return res.data;
+    },
+    queryKey: ["useGetProducts", params],
+    placeholderData: keepPreviousData,
+  });
+};
+const usePostProduct = () =>
+  useMutation({
+    mutationKey: ["usePostProduct"],
+    mutationFn: async ({
+      data,
+    }: {
+      data: {
+        product: {
+          name: string;
+        };
+        question: string;
+        answer: string;
+      };
+    }) => await api.post(`/bajet/v1/resource/`, data),
+  });
 
 export {
   useGetReports,
@@ -261,5 +307,7 @@ export {
   useGetQuestionById,
   useGetBarChartData,
   useDeletePermissionedUser,
-  useGetResources
+  useGetResources,
+  useGetProducts,
+  usePostProduct,
 };

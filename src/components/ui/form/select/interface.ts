@@ -18,7 +18,7 @@ interface SelectOption {
   disabled?: boolean;
 }
 
-interface SelectProps {
+export interface SelectProps {
   options: SelectOption[];
   value?: string;
   defaultValue?: string;

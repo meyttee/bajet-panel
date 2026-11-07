@@ -27,6 +27,7 @@ export function TableToolbar<TData>({
   handleAdd,
   hasExport,
   handleExport,
+  moreOptions,
   ...props
 }: TableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
@@ -75,9 +76,10 @@ export function TableToolbar<TData>({
               onClick={handleAdd}
             >
               <PlusCircleIcon />
-              افزودن عضو جدید
+              افزودن
             </Button>
           )}
+          {moreOptions}
           {hasExport && (
             <Button
               aria-label="Reset filters"

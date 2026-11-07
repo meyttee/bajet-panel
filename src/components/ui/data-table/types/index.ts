@@ -12,6 +12,7 @@ import { FilterItemSchema } from "../lib/parsers";
 import { DataTableConfig } from "../constant";
 import { Options } from "nuqs";
 import type { DateRange } from "react-day-picker";
+import { ReactNode } from "react";
 
 interface UseTableFiltersProps<TData> {
   table: Table<TData>;
@@ -133,6 +134,7 @@ export interface TableToolbarProps<TData> {
   handleAdd?: () => void;
   hasExport?: boolean;
   handleExport?: () => void;
+  moreOptions?: ReactNode;
 }
 
 type SortParams = { sortBy: `${string}.${"asc" | "desc"}` };
