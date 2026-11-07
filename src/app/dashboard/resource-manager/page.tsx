@@ -1,7 +1,12 @@
 import { ResourceManager } from "@/components";
+import { Suspense } from "react";
 
 function Page() {
-  return <ResourceManager />;
+  return (
+    <Suspense fallback={<>loading ...</>}>
+      <ResourceManager />
+    </Suspense>
+  );
 }
 
 export default Page;
