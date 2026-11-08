@@ -15,6 +15,7 @@ import {
   useGetResourceById,
   useGetResources,
   usePostProduct,
+  usePutProduct,
 } from "@/services";
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -24,11 +25,33 @@ const AddModal = ({ id, onOpenChange, open }: any) => {
   const { control, handleSubmit, reset } = useForm();
   const [value, setValue] = useState("");
   const { mutate } = usePostProduct();
+  const { mutate: putMutation } = usePutProduct();
   const { refetch } = useGetResources();
   const { data: fieldsData } = useGetResourceById(id);
   const onSubmit = (data: any) => {
     if (id) {
-      console.log(id);
+      putMutation(
+        {
+          id,
+          data: {
+            product: value,
+            question: data.question,
+            answer: data.answer,
+          },
+        },
+        {
+          onSuccess: () => {
+            toast.success("عملیات با موفقیت انجام شد.");
+            refetch();
+            onOpenChange();
+            reset();
+            setValue("");
+          },
+          onError() {
+            toast.error("خطا در دریافت اطلاعات");
+          },
+        },
+      );
     } else {
       mutate(
         {
@@ -45,6 +68,9 @@ const AddModal = ({ id, onOpenChange, open }: any) => {
             onOpenChange();
             reset();
             setValue("");
+          },
+          onError() {
+            toast.error("خطا در دریافت اطلاعات");
           },
         },
       );

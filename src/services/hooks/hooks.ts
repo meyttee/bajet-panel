@@ -284,6 +284,22 @@ const usePostProduct = () =>
       };
     }) => await api.post(`/bajet/v1/resource/`, data),
   });
+const usePutProduct = () =>
+  useMutation({
+    mutationKey: ["usePutProduct"],
+    mutationFn: async ({
+      data,
+      id,
+    }: {
+      id: string;
+      data: {
+        product: string;
+        question: string;
+        answer: string;
+      };
+    }) => await api.post(`/bajet/v1/resource/${id}`, data),
+  });
+
 const useUploadProductList = () =>
   useMutation({
     mutationKey: ["usePostProduct"],
@@ -331,4 +347,5 @@ export {
   useGetResourceById,
   usePostProduct,
   useUploadProductList,
+  usePutProduct,
 };
