@@ -8,9 +8,15 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  toast,
 } from "@/components/ui";
-import { useGetProducts, useGetResources, usePostProduct } from "@/services";
-import { useState } from "react";
+import {
+  useGetProducts,
+  useGetResourceById,
+  useGetResources,
+  usePostProduct,
+} from "@/services";
+import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 const AddModal = ({ id, onOpenChange, open }: any) => {
@@ -19,6 +25,7 @@ const AddModal = ({ id, onOpenChange, open }: any) => {
   const [value, setValue] = useState("");
   const { mutate } = usePostProduct();
   const { refetch } = useGetResources();
+  const { data: fieldsData } = useGetResourceById(id);
   const onSubmit = (data: any) => {
     if (id) {
       console.log(id);
@@ -26,15 +33,14 @@ const AddModal = ({ id, onOpenChange, open }: any) => {
       mutate(
         {
           data: {
-            product: {
-              name: value,
-            },
+            product: value,
             question: data.question,
             answer: data.answer,
           },
         },
         {
           onSuccess: () => {
+            toast.success("عملیات با موفقیت انجام شد.");
             refetch();
             onOpenChange();
             reset();
@@ -44,6 +50,14 @@ const AddModal = ({ id, onOpenChange, open }: any) => {
       );
     }
   };
+
+  useEffect(() => {
+    if (id) {
+      setValue(fieldsData?.product || "");
+      reset(fieldsData);
+    }
+  }, [fieldsData]);
+
   return (
     <Modal
       open={open}
@@ -113,13 +127,18 @@ const AddModal = ({ id, onOpenChange, open }: any) => {
                 {...field}
                 onValueChange={(v) => setValue(v)}
                 value={value}
+                defaultValue={value}
               >
                 <SelectTrigger className="w-full">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent dir="rtl" id="product">
                   {data?.results.map((item) => (
-                    <SelectItem key={item.id} value={item.name}>
+                    <SelectItem
+                      key={item.id}
+                      value={item.id}
+                      defaultChecked={item.id === value}
+                    >
                       {item.name}
                     </SelectItem>
                   ))}

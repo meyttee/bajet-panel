@@ -17,6 +17,7 @@ import { useState } from "react";
 import axios from "axios";
 import { ArrowUpCircle } from "lucide-react";
 import AddModal from "./addModal";
+import UploadModal from "./uploadModal";
 
 const ResourceManager = () => {
   const [userId, setUserId] = useState<string>();
@@ -29,9 +30,9 @@ const ResourceManager = () => {
     columns: TABLE_COLS,
     data: data?.results || [],
     pageCount: data?.all_page || 1,
-    // actions: {
-    //   onEdit: (row) => setUserId(row.id),
-    // },
+    actions: {
+      onEdit: (row) => setUserId(row.id),
+    },
   });
 
   if (isLoading) {
@@ -53,22 +54,27 @@ const ResourceManager = () => {
         open={!!userId || isOpen}
       />
 
+      <UploadModal
+        open={isUploadModalOpen}
+        onOpenChange={() => setIsUploadModalOpen(false)}
+      />
+
       <TableToolbar
         table={table}
         title="اعضا"
         handleAdd={() => setIsOpen(true)}
         totalItems={data?.count || 0}
-        // moreOptions={
-        //   <Button
-        //     aria-label="Reset filters"
-        //     variant="outline"
-        //     size="sm"
-        //     onClick={() => console.log("log")}
-        //   >
-        //     <ArrowUpCircle />
-        //     بارگذاری
-        //   </Button>
-        // }
+        moreOptions={
+          <Button
+            aria-label="Reset filters"
+            variant="outline"
+            size="sm"
+            onClick={() => setIsUploadModalOpen(true)}
+          >
+            <ArrowUpCircle />
+            بارگذاری
+          </Button>
+        }
       />
       <DataTable table={table} />
     </TableContainer>

@@ -278,13 +278,32 @@ const usePostProduct = () =>
       data,
     }: {
       data: {
-        product: {
-          name: string;
-        };
+        product: string;
         question: string;
         answer: string;
       };
     }) => await api.post(`/bajet/v1/resource/`, data),
+  });
+const useUploadProductList = () =>
+  useMutation({
+    mutationKey: ["usePostProduct"],
+    mutationFn: async ({ data }: { data: FormData }) =>
+      await api.post(`/bajet/v1/resource/import`, data),
+  });
+
+const useGetResourceById = (id: string) =>
+  useQuery({
+    queryFn: async () => {
+      const res = await api.get<{
+        product: string;
+        question: string;
+        answer: string;
+      }>(`/bajet/v1/resource/${id}`);
+      return res.data;
+    },
+    placeholderData: keepPreviousData,
+    queryKey: ["useGetReportById", id],
+    enabled: !!id,
   });
 
 export {
@@ -309,5 +328,7 @@ export {
   useDeletePermissionedUser,
   useGetResources,
   useGetProducts,
+  useGetResourceById,
   usePostProduct,
+  useUploadProductList,
 };
